@@ -1,0 +1,11 @@
+syntax = "proto3";
+package sym.models;
+
+option go_package = "github.com/symopsio/protobufs/models";
+
+message User {
+  message Identity {
+    string id = 1;
+  }
+  map<string, Identity> identities = 1;
+}
