@@ -1,0 +1,14 @@
+syntax = "proto3";
+package sym.models;
+
+option go_package = "github.com/symopsio/protobufs/go/models";
+
+message EscalationResponse {
+  bool ok = 1;
+  string error = 2;
+}
+
+message ExpirationResponse {
+  bool ok = 1;
+  string error = 2;
+}

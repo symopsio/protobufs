@@ -3,6 +3,8 @@ PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
 GO_OUT_DIR="./go"
 TS_OUT_DIR="./js"
 
+all: js go
+
 go:
 	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
 		--go_opt=module=github.com/symopsio/protobufs/go \

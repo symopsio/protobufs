@@ -22,4 +22,3 @@ message Approval {
   Users users = 3;
   Meta meta = 4;
 }
-
