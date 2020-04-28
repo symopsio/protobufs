@@ -1,0 +1,12 @@
+syntax = "proto3";
+package sym.models;
+
+option go_package = "github.com/symopsio/protobufs/go/models";
+
+import "enums/service.proto";
+
+/* Resource represents some entity from a given service */
+message Resource {
+  sym.enums.Service service = 1;
+  string id = 2;
+}

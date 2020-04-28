@@ -1,0 +1,8 @@
+syntax = "proto3";
+package sym.models;
+
+option go_package = "github.com/symopsio/protobufs/go/models";
+
+message UUID {
+  string value = 1;
+}

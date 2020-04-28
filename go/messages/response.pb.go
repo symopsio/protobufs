@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.21.0-devel
 // 	protoc        v3.11.4
-// source: models/response.proto
+// source: messages/response.proto
 
-package models
+package messages
 
 import (
 	proto "github.com/golang/protobuf/proto"
@@ -25,19 +25,20 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+// EscalationResponse gets sent back upon successful escalations
 type EscalationResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	Ok    bool   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
-	Error string `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Error string `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"` // error message when not ok
 }
 
 func (x *EscalationResponse) Reset() {
 	*x = EscalationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_models_response_proto_msgTypes[0]
+		mi := &file_messages_response_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -50,7 +51,7 @@ func (x *EscalationResponse) String() string {
 func (*EscalationResponse) ProtoMessage() {}
 
 func (x *EscalationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_models_response_proto_msgTypes[0]
+	mi := &file_messages_response_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -63,7 +64,7 @@ func (x *EscalationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EscalationResponse.ProtoReflect.Descriptor instead.
 func (*EscalationResponse) Descriptor() ([]byte, []int) {
-	return file_models_response_proto_rawDescGZIP(), []int{0}
+	return file_messages_response_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *EscalationResponse) GetOk() bool {
@@ -80,19 +81,20 @@ func (x *EscalationResponse) GetError() string {
 	return ""
 }
 
+// ExpirationResponse gets sent back upon successful escalations
 type ExpirationResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	Ok    bool   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
-	Error string `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Error string `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"` // error message when not ok
 }
 
 func (x *ExpirationResponse) Reset() {
 	*x = ExpirationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_models_response_proto_msgTypes[1]
+		mi := &file_messages_response_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -105,7 +107,7 @@ func (x *ExpirationResponse) String() string {
 func (*ExpirationResponse) ProtoMessage() {}
 
 func (x *ExpirationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_models_response_proto_msgTypes[1]
+	mi := &file_messages_response_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -118,7 +120,7 @@ func (x *ExpirationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExpirationResponse.ProtoReflect.Descriptor instead.
 func (*ExpirationResponse) Descriptor() ([]byte, []int) {
-	return file_models_response_proto_rawDescGZIP(), []int{1}
+	return file_messages_response_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ExpirationResponse) GetOk() bool {
@@ -135,42 +137,43 @@ func (x *ExpirationResponse) GetError() string {
 	return ""
 }
 
-var File_models_response_proto protoreflect.FileDescriptor
+var File_messages_response_proto protoreflect.FileDescriptor
 
-var file_models_response_proto_rawDesc = []byte{
-	0x0a, 0x15, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0a, 0x73, 0x79, 0x6d, 0x2e, 0x6d, 0x6f, 0x64,
-	0x65, 0x6c, 0x73, 0x22, 0x3a, 0x0a, 0x12, 0x45, 0x73, 0x63, 0x61, 0x6c, 0x61, 0x74, 0x69, 0x6f,
+var file_messages_response_proto_rawDesc = []byte{
+	0x0a, 0x17, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x72, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0c, 0x73, 0x79, 0x6d, 0x2e, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x22, 0x3a, 0x0a, 0x12, 0x45, 0x73, 0x63, 0x61, 0x6c,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a,
+	0x02, 0x6f, 0x6b, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x02, 0x6f, 0x6b, 0x12, 0x14, 0x0a,
+	0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x72,
+	0x72, 0x6f, 0x72, 0x22, 0x3a, 0x0a, 0x12, 0x45, 0x78, 0x70, 0x69, 0x72, 0x61, 0x74, 0x69, 0x6f,
 	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x6f, 0x6b, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x02, 0x6f, 0x6b, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72,
-	0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x22,
-	0x3a, 0x0a, 0x12, 0x45, 0x78, 0x70, 0x69, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x6f, 0x6b, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x08, 0x52, 0x02, 0x6f, 0x6b, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x42, 0x29, 0x5a, 0x27, 0x67,
-	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x79, 0x6d, 0x6f, 0x70, 0x73,
-	0x69, 0x6f, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x73, 0x2f, 0x67, 0x6f, 0x2f,
-	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x42,
+	0x2b, 0x5a, 0x29, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x79,
+	0x6d, 0x6f, 0x70, 0x73, 0x69, 0x6f, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x73,
+	0x2f, 0x67, 0x6f, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_models_response_proto_rawDescOnce sync.Once
-	file_models_response_proto_rawDescData = file_models_response_proto_rawDesc
+	file_messages_response_proto_rawDescOnce sync.Once
+	file_messages_response_proto_rawDescData = file_messages_response_proto_rawDesc
 )
 
-func file_models_response_proto_rawDescGZIP() []byte {
-	file_models_response_proto_rawDescOnce.Do(func() {
-		file_models_response_proto_rawDescData = protoimpl.X.CompressGZIP(file_models_response_proto_rawDescData)
+func file_messages_response_proto_rawDescGZIP() []byte {
+	file_messages_response_proto_rawDescOnce.Do(func() {
+		file_messages_response_proto_rawDescData = protoimpl.X.CompressGZIP(file_messages_response_proto_rawDescData)
 	})
-	return file_models_response_proto_rawDescData
+	return file_messages_response_proto_rawDescData
 }
 
-var file_models_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_models_response_proto_goTypes = []interface{}{
-	(*EscalationResponse)(nil), // 0: sym.models.EscalationResponse
-	(*ExpirationResponse)(nil), // 1: sym.models.ExpirationResponse
+var file_messages_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_messages_response_proto_goTypes = []interface{}{
+	(*EscalationResponse)(nil), // 0: sym.messages.EscalationResponse
+	(*ExpirationResponse)(nil), // 1: sym.messages.ExpirationResponse
 }
-var file_models_response_proto_depIdxs = []int32{
+var file_messages_response_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -178,13 +181,13 @@ var file_models_response_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_models_response_proto_init() }
-func file_models_response_proto_init() {
-	if File_models_response_proto != nil {
+func init() { file_messages_response_proto_init() }
+func file_messages_response_proto_init() {
+	if File_messages_response_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_models_response_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_messages_response_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EscalationResponse); i {
 			case 0:
 				return &v.state
@@ -196,7 +199,7 @@ func file_models_response_proto_init() {
 				return nil
 			}
 		}
-		file_models_response_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_messages_response_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ExpirationResponse); i {
 			case 0:
 				return &v.state
@@ -213,18 +216,18 @@ func file_models_response_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_models_response_proto_rawDesc,
+			RawDescriptor: file_messages_response_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_models_response_proto_goTypes,
-		DependencyIndexes: file_models_response_proto_depIdxs,
-		MessageInfos:      file_models_response_proto_msgTypes,
+		GoTypes:           file_messages_response_proto_goTypes,
+		DependencyIndexes: file_messages_response_proto_depIdxs,
+		MessageInfos:      file_messages_response_proto_msgTypes,
 	}.Build()
-	File_models_response_proto = out.File
-	file_models_response_proto_rawDesc = nil
-	file_models_response_proto_goTypes = nil
-	file_models_response_proto_depIdxs = nil
+	File_messages_response_proto = out.File
+	file_messages_response_proto_rawDesc = nil
+	file_messages_response_proto_goTypes = nil
+	file_messages_response_proto_depIdxs = nil
 }

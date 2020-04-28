@@ -3,9 +3,21 @@ package sym.models;
 
 option go_package = "github.com/symopsio/protobufs/go/models";
 
+import "enums/service.proto";
+import "models/uuid.proto";
+
+/* User holds multiple Identities for various integrated services. */
 message User {
   message Identity {
-    string id = 1;
+    sym.enums.Service service = 1;
+    string id = 2;
   }
-  map<string, Identity> identities = 1;
+
+  /* The uuid for a user remains constant across all services */
+  UUID uuid = 1;
+
+  /* current_identity is the system the user is currently interacting with sym
+   * from */
+  Identity current_identity = 2;
+  repeated Identity identities = 3;
 }

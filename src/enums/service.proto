@@ -1,0 +1,13 @@
+syntax = "proto3";
+package sym.enums;
+
+option go_package = "github.com/symopsio/protobufs/go/enums";
+
+/* Service represents a system Sym integrates with */
+enum Service {
+  UNKNOWN = 0;
+  SLACK = 1;
+  OKTA = 2;
+  AWS = 3;
+  CUSTOM = 4;
+}

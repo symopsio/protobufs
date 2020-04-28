@@ -1,0 +1,25 @@
+syntax = "proto3";
+package sym.messages;
+
+option go_package = "github.com/symopsio/protobufs/go/messages";
+
+import "models/resource.proto";
+import "models/schema.proto";
+import "models/user.proto";
+
+/* Approval messages represent approval for a target user to use a resource */
+message Approval {
+  message Meta {
+    sym.models.User approver = 1;
+    string reason = 2; // user-defined arbitrary reason
+  }
+  /* Target of approval is a user and resource */
+  message Target {
+    sym.models.User user = 1;
+    sym.models.Resource resource = 2;
+  }
+  string id = 1;
+  sym.models.Schema schema = 2;
+  Target target = 3;
+  Meta meta = 4;
+}

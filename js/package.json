@@ -1,9 +1,18 @@
 {
-  "name": "sym-protobufs",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@symops/protobufs",
+  "version": "0.0.2",
+  "license": "Apache 2.0",
+  "description": "Shared models for Sym integrations",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/symopsio/protobufs.git",
+    "directory": "js"
+  },
+  "homepage": "https://github.com/symopsio/protobufs",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@types/google-protobuf": "^3.7.2",
-    "google-protobuf": "^3.11.4"
+    "protobufjs": "^6.9.0"
   }
 }
