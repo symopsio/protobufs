@@ -3,9 +3,9 @@ package sym.messages;
 
 option go_package = "github.com/symopsio/protobufs/go/messages";
 
-import "models/resource.proto";
-import "models/schema.proto";
-import "models/user.proto";
+import "sym/models/resource.proto";
+import "sym/models/schema.proto";
+import "sym/models/user.proto";
 
 /* Approval messages represent approval for a target user to use a resource */
 message Approval {

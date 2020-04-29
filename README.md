@@ -1,3 +1,3 @@
-# protobufs
+# types
 
-Shared models for Sym integrations
+Shared types for Sym integrations, delivered as protobufs

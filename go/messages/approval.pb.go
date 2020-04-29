@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.21.0-devel
 // 	protoc        v3.11.4
-// source: messages/approval.proto
+// source: sym/messages/approval.proto
 
 package messages
 
@@ -41,7 +41,7 @@ type Approval struct {
 func (x *Approval) Reset() {
 	*x = Approval{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_messages_approval_proto_msgTypes[0]
+		mi := &file_sym_messages_approval_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -54,7 +54,7 @@ func (x *Approval) String() string {
 func (*Approval) ProtoMessage() {}
 
 func (x *Approval) ProtoReflect() protoreflect.Message {
-	mi := &file_messages_approval_proto_msgTypes[0]
+	mi := &file_sym_messages_approval_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -67,7 +67,7 @@ func (x *Approval) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Approval.ProtoReflect.Descriptor instead.
 func (*Approval) Descriptor() ([]byte, []int) {
-	return file_messages_approval_proto_rawDescGZIP(), []int{0}
+	return file_sym_messages_approval_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Approval) GetId() string {
@@ -110,7 +110,7 @@ type Approval_Meta struct {
 func (x *Approval_Meta) Reset() {
 	*x = Approval_Meta{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_messages_approval_proto_msgTypes[1]
+		mi := &file_sym_messages_approval_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -123,7 +123,7 @@ func (x *Approval_Meta) String() string {
 func (*Approval_Meta) ProtoMessage() {}
 
 func (x *Approval_Meta) ProtoReflect() protoreflect.Message {
-	mi := &file_messages_approval_proto_msgTypes[1]
+	mi := &file_sym_messages_approval_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -136,7 +136,7 @@ func (x *Approval_Meta) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Approval_Meta.ProtoReflect.Descriptor instead.
 func (*Approval_Meta) Descriptor() ([]byte, []int) {
-	return file_messages_approval_proto_rawDescGZIP(), []int{0, 0}
+	return file_sym_messages_approval_proto_rawDescGZIP(), []int{0, 0}
 }
 
 func (x *Approval_Meta) GetApprover() *models.User {
@@ -166,7 +166,7 @@ type Approval_Target struct {
 func (x *Approval_Target) Reset() {
 	*x = Approval_Target{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_messages_approval_proto_msgTypes[2]
+		mi := &file_sym_messages_approval_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -179,7 +179,7 @@ func (x *Approval_Target) String() string {
 func (*Approval_Target) ProtoMessage() {}
 
 func (x *Approval_Target) ProtoReflect() protoreflect.Message {
-	mi := &file_messages_approval_proto_msgTypes[2]
+	mi := &file_sym_messages_approval_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -192,7 +192,7 @@ func (x *Approval_Target) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Approval_Target.ProtoReflect.Descriptor instead.
 func (*Approval_Target) Descriptor() ([]byte, []int) {
-	return file_messages_approval_proto_rawDescGZIP(), []int{0, 1}
+	return file_sym_messages_approval_proto_rawDescGZIP(), []int{0, 1}
 }
 
 func (x *Approval_Target) GetUser() *models.User {
@@ -209,15 +209,16 @@ func (x *Approval_Target) GetResource() *models.Resource {
 	return nil
 }
 
-var File_messages_approval_proto protoreflect.FileDescriptor
+var File_sym_messages_approval_proto protoreflect.FileDescriptor
 
-var file_messages_approval_proto_rawDesc = []byte{
-	0x0a, 0x17, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x61, 0x70, 0x70, 0x72, 0x6f,
-	0x76, 0x61, 0x6c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0c, 0x73, 0x79, 0x6d, 0x2e, 0x6d,
-	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x1a, 0x15, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f,
-	0x72, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x13,
-	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x1a, 0x11, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x75, 0x73, 0x65, 0x72,
+var file_sym_messages_approval_proto_rawDesc = []byte{
+	0x0a, 0x1b, 0x73, 0x79, 0x6d, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x61,
+	0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0c, 0x73,
+	0x79, 0x6d, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x1a, 0x19, 0x73, 0x79, 0x6d,
+	0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x72, 0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x17, 0x73, 0x79, 0x6d, 0x2f, 0x6d, 0x6f, 0x64, 0x65,
+	0x6c, 0x73, 0x2f, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a,
+	0x15, 0x73, 0x79, 0x6d, 0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x75, 0x73, 0x65, 0x72,
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xde, 0x02, 0x0a, 0x08, 0x41, 0x70, 0x70, 0x72, 0x6f,
 	0x76, 0x61, 0x6c, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
 	0x02, 0x69, 0x64, 0x12, 0x2a, 0x0a, 0x06, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x18, 0x02, 0x20,
@@ -247,19 +248,19 @@ var file_messages_approval_proto_rawDesc = []byte{
 }
 
 var (
-	file_messages_approval_proto_rawDescOnce sync.Once
-	file_messages_approval_proto_rawDescData = file_messages_approval_proto_rawDesc
+	file_sym_messages_approval_proto_rawDescOnce sync.Once
+	file_sym_messages_approval_proto_rawDescData = file_sym_messages_approval_proto_rawDesc
 )
 
-func file_messages_approval_proto_rawDescGZIP() []byte {
-	file_messages_approval_proto_rawDescOnce.Do(func() {
-		file_messages_approval_proto_rawDescData = protoimpl.X.CompressGZIP(file_messages_approval_proto_rawDescData)
+func file_sym_messages_approval_proto_rawDescGZIP() []byte {
+	file_sym_messages_approval_proto_rawDescOnce.Do(func() {
+		file_sym_messages_approval_proto_rawDescData = protoimpl.X.CompressGZIP(file_sym_messages_approval_proto_rawDescData)
 	})
-	return file_messages_approval_proto_rawDescData
+	return file_sym_messages_approval_proto_rawDescData
 }
 
-var file_messages_approval_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_messages_approval_proto_goTypes = []interface{}{
+var file_sym_messages_approval_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_sym_messages_approval_proto_goTypes = []interface{}{
 	(*Approval)(nil),        // 0: sym.messages.Approval
 	(*Approval_Meta)(nil),   // 1: sym.messages.Approval.Meta
 	(*Approval_Target)(nil), // 2: sym.messages.Approval.Target
@@ -267,7 +268,7 @@ var file_messages_approval_proto_goTypes = []interface{}{
 	(*models.User)(nil),     // 4: sym.models.User
 	(*models.Resource)(nil), // 5: sym.models.Resource
 }
-var file_messages_approval_proto_depIdxs = []int32{
+var file_sym_messages_approval_proto_depIdxs = []int32{
 	3, // 0: sym.messages.Approval.schema:type_name -> sym.models.Schema
 	2, // 1: sym.messages.Approval.target:type_name -> sym.messages.Approval.Target
 	1, // 2: sym.messages.Approval.meta:type_name -> sym.messages.Approval.Meta
@@ -281,13 +282,13 @@ var file_messages_approval_proto_depIdxs = []int32{
 	0, // [0:6] is the sub-list for field type_name
 }
 
-func init() { file_messages_approval_proto_init() }
-func file_messages_approval_proto_init() {
-	if File_messages_approval_proto != nil {
+func init() { file_sym_messages_approval_proto_init() }
+func file_sym_messages_approval_proto_init() {
+	if File_sym_messages_approval_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_messages_approval_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_sym_messages_approval_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Approval); i {
 			case 0:
 				return &v.state
@@ -299,7 +300,7 @@ func file_messages_approval_proto_init() {
 				return nil
 			}
 		}
-		file_messages_approval_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_sym_messages_approval_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Approval_Meta); i {
 			case 0:
 				return &v.state
@@ -311,7 +312,7 @@ func file_messages_approval_proto_init() {
 				return nil
 			}
 		}
-		file_messages_approval_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_sym_messages_approval_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Approval_Target); i {
 			case 0:
 				return &v.state
@@ -328,18 +329,18 @@ func file_messages_approval_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_messages_approval_proto_rawDesc,
+			RawDescriptor: file_sym_messages_approval_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_messages_approval_proto_goTypes,
-		DependencyIndexes: file_messages_approval_proto_depIdxs,
-		MessageInfos:      file_messages_approval_proto_msgTypes,
+		GoTypes:           file_sym_messages_approval_proto_goTypes,
+		DependencyIndexes: file_sym_messages_approval_proto_depIdxs,
+		MessageInfos:      file_sym_messages_approval_proto_msgTypes,
 	}.Build()
-	File_messages_approval_proto = out.File
-	file_messages_approval_proto_rawDesc = nil
-	file_messages_approval_proto_goTypes = nil
-	file_messages_approval_proto_depIdxs = nil
+	File_sym_messages_approval_proto = out.File
+	file_sym_messages_approval_proto_rawDesc = nil
+	file_sym_messages_approval_proto_goTypes = nil
+	file_sym_messages_approval_proto_depIdxs = nil
 }

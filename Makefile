@@ -8,13 +8,13 @@ all: js go
 go:
 	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
 		--go_opt=module=github.com/symopsio/protobufs/go \
-		src/enums/*.proto
+		src/sym/enums/*.proto
 	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
 		--go_opt=module=github.com/symopsio/protobufs/go \
-		src/models/*.proto
+		src/sym/models/*.proto
 	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
 		--go_opt=module=github.com/symopsio/protobufs/go \
-		src/messages/*.proto
+		src/sym/messages/*.proto
 
 js:
 	pbjs -t static-module -w commonjs -o js/index.js \

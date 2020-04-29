@@ -3,8 +3,8 @@ package sym.models;
 
 option go_package = "github.com/symopsio/protobufs/go/models";
 
-import "enums/service.proto";
-import "models/uuid.proto";
+import "sym/enums/service.proto";
+import "sym/models/uuid.proto";
 
 /* User holds multiple Identities for various integrated services. */
 message User {
