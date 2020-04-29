@@ -22,7 +22,7 @@ export namespace sym {
         interface IApproval {
 
             /** Approval id */
-            id?: (string|null);
+            id?: (sym.models.IUUID|null);
 
             /** Approval schema */
             schema?: (sym.models.ISchema|null);
@@ -44,7 +44,7 @@ export namespace sym {
             constructor(properties?: sym.messages.IApproval);
 
             /** Approval id. */
-            public id: string;
+            public id?: (sym.models.IUUID|null);
 
             /** Approval schema. */
             public schema?: (sym.models.ISchema|null);
@@ -319,6 +319,108 @@ export namespace sym {
                  */
                 public toJSON(): { [k: string]: any };
             }
+        }
+
+        /** Properties of an Expiration. */
+        interface IExpiration {
+
+            /** Expiration id */
+            id?: (sym.models.IUUID|null);
+
+            /** Expiration schema */
+            schema?: (sym.models.ISchema|null);
+
+            /** Expiration approval */
+            approval?: (sym.messages.IApproval|null);
+        }
+
+        /** Represents an Expiration. */
+        class Expiration implements IExpiration {
+
+            /**
+             * Constructs a new Expiration.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: sym.messages.IExpiration);
+
+            /** Expiration id. */
+            public id?: (sym.models.IUUID|null);
+
+            /** Expiration schema. */
+            public schema?: (sym.models.ISchema|null);
+
+            /** Expiration approval. */
+            public approval?: (sym.messages.IApproval|null);
+
+            /**
+             * Creates a new Expiration instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Expiration instance
+             */
+            public static create(properties?: sym.messages.IExpiration): sym.messages.Expiration;
+
+            /**
+             * Encodes the specified Expiration message. Does not implicitly {@link sym.messages.Expiration.verify|verify} messages.
+             * @param message Expiration message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: sym.messages.IExpiration, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Expiration message, length delimited. Does not implicitly {@link sym.messages.Expiration.verify|verify} messages.
+             * @param message Expiration message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: sym.messages.IExpiration, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an Expiration message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Expiration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Expiration;
+
+            /**
+             * Decodes an Expiration message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Expiration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Expiration;
+
+            /**
+             * Verifies an Expiration message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an Expiration message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Expiration
+             */
+            public static fromObject(object: { [k: string]: any }): sym.messages.Expiration;
+
+            /**
+             * Creates a plain object from an Expiration message. Also converts values to other types if specified.
+             * @param message Expiration
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: sym.messages.Expiration, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Expiration to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
         }
 
         /** Properties of an EscalationResponse. */

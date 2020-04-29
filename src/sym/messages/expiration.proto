@@ -1,0 +1,15 @@
+syntax = "proto3";
+package sym.messages;
+
+option go_package = "github.com/symopsio/types/go/messages";
+
+import "sym/models/schema.proto";
+import "sym/models/uuid.proto";
+import "sym/messages/approval.proto";
+
+/* Expiration messages represent an approval that is now expired */
+message Expiration {
+  sym.models.UUID id = 1;
+  sym.models.Schema schema = 2;
+  Approval approval = 3;
+}
