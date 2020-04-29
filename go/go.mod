@@ -1,4 +1,4 @@
-module github.com/symopsio/protobufs/go
+module github.com/symopsio/types/go
 
 go 1.14
 

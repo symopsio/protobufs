@@ -7,13 +7,13 @@ all: js go
 
 go:
 	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
-		--go_opt=module=github.com/symopsio/protobufs/go \
+		--go_opt=module=github.com/symopsio/types/go \
 		src/sym/enums/*.proto
 	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
-		--go_opt=module=github.com/symopsio/protobufs/go \
+		--go_opt=module=github.com/symopsio/types/go \
 		src/sym/models/*.proto
 	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
-		--go_opt=module=github.com/symopsio/protobufs/go \
+		--go_opt=module=github.com/symopsio/types/go \
 		src/sym/messages/*.proto
 
 js:
