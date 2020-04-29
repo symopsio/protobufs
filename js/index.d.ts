@@ -330,8 +330,8 @@ export namespace sym {
             /** Expiration schema */
             schema?: (sym.models.ISchema|null);
 
-            /** Expiration approval */
-            approval?: (sym.messages.IApproval|null);
+            /** Expiration target */
+            target?: (sym.messages.Expiration.ITarget|null);
         }
 
         /** Represents an Expiration. */
@@ -349,8 +349,8 @@ export namespace sym {
             /** Expiration schema. */
             public schema?: (sym.models.ISchema|null);
 
-            /** Expiration approval. */
-            public approval?: (sym.messages.IApproval|null);
+            /** Expiration target. */
+            public target?: (sym.messages.Expiration.ITarget|null);
 
             /**
              * Creates a new Expiration instance using the specified properties.
@@ -421,6 +421,105 @@ export namespace sym {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
+        }
+
+        namespace Expiration {
+
+            /** Properties of a Target. */
+            interface ITarget {
+
+                /** Target user */
+                user?: (sym.models.IUser|null);
+
+                /** Target resource */
+                resource?: (sym.models.IResource|null);
+            }
+
+            /** Represents a Target. */
+            class Target implements ITarget {
+
+                /**
+                 * Constructs a new Target.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: sym.messages.Expiration.ITarget);
+
+                /** Target user. */
+                public user?: (sym.models.IUser|null);
+
+                /** Target resource. */
+                public resource?: (sym.models.IResource|null);
+
+                /**
+                 * Creates a new Target instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns Target instance
+                 */
+                public static create(properties?: sym.messages.Expiration.ITarget): sym.messages.Expiration.Target;
+
+                /**
+                 * Encodes the specified Target message. Does not implicitly {@link sym.messages.Expiration.Target.verify|verify} messages.
+                 * @param message Target message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: sym.messages.Expiration.ITarget, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified Target message, length delimited. Does not implicitly {@link sym.messages.Expiration.Target.verify|verify} messages.
+                 * @param message Target message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: sym.messages.Expiration.ITarget, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a Target message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns Target
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Expiration.Target;
+
+                /**
+                 * Decodes a Target message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns Target
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Expiration.Target;
+
+                /**
+                 * Verifies a Target message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a Target message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns Target
+                 */
+                public static fromObject(object: { [k: string]: any }): sym.messages.Expiration.Target;
+
+                /**
+                 * Creates a plain object from a Target message. Also converts values to other types if specified.
+                 * @param message Target
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: sym.messages.Expiration.Target, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this Target to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+            }
         }
 
         /** Properties of an EscalationResponse. */

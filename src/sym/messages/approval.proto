@@ -14,10 +14,9 @@ message Approval {
     sym.models.User approver = 1;
     string reason = 2; // user-defined arbitrary reason
   }
-  /* Target of approval is a user and resource */
   message Target {
-    sym.models.User user = 1;
-    sym.models.Resource resource = 2;
+    sym.models.User user = 1; // user to grant access to
+    sym.models.Resource resource = 2; // resource to give access to
   }
   sym.models.UUID id = 1;
   sym.models.Schema schema = 2;

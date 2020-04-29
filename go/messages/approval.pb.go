@@ -153,14 +153,13 @@ func (x *Approval_Meta) GetReason() string {
 	return ""
 }
 
-// Target of approval is a user and resource
 type Approval_Target struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	User     *models.User     `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	Resource *models.Resource `protobuf:"bytes,2,opt,name=resource,proto3" json:"resource,omitempty"`
+	User     *models.User     `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`         // user to grant access to
+	Resource *models.Resource `protobuf:"bytes,2,opt,name=resource,proto3" json:"resource,omitempty"` // resource to give access to
 }
 
 func (x *Approval_Target) Reset() {

@@ -776,7 +776,7 @@ $root.sym = (function() {
              * @interface IExpiration
              * @property {sym.models.IUUID|null} [id] Expiration id
              * @property {sym.models.ISchema|null} [schema] Expiration schema
-             * @property {sym.messages.IApproval|null} [approval] Expiration approval
+             * @property {sym.messages.Expiration.ITarget|null} [target] Expiration target
              */
 
             /**
@@ -811,12 +811,12 @@ $root.sym = (function() {
             Expiration.prototype.schema = null;
 
             /**
-             * Expiration approval.
-             * @member {sym.messages.IApproval|null|undefined} approval
+             * Expiration target.
+             * @member {sym.messages.Expiration.ITarget|null|undefined} target
              * @memberof sym.messages.Expiration
              * @instance
              */
-            Expiration.prototype.approval = null;
+            Expiration.prototype.target = null;
 
             /**
              * Creates a new Expiration instance using the specified properties.
@@ -846,8 +846,8 @@ $root.sym = (function() {
                     $root.sym.models.UUID.encode(message.id, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
                 if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
                     $root.sym.models.Schema.encode(message.schema, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                if (message.approval != null && Object.hasOwnProperty.call(message, "approval"))
-                    $root.sym.messages.Approval.encode(message.approval, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.target != null && Object.hasOwnProperty.call(message, "target"))
+                    $root.sym.messages.Expiration.Target.encode(message.target, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 return writer;
             };
 
@@ -889,7 +889,7 @@ $root.sym = (function() {
                         message.schema = $root.sym.models.Schema.decode(reader, reader.uint32());
                         break;
                     case 3:
-                        message.approval = $root.sym.messages.Approval.decode(reader, reader.uint32());
+                        message.target = $root.sym.messages.Expiration.Target.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -936,10 +936,10 @@ $root.sym = (function() {
                     if (error)
                         return "schema." + error;
                 }
-                if (message.approval != null && message.hasOwnProperty("approval")) {
-                    var error = $root.sym.messages.Approval.verify(message.approval);
+                if (message.target != null && message.hasOwnProperty("target")) {
+                    var error = $root.sym.messages.Expiration.Target.verify(message.target);
                     if (error)
-                        return "approval." + error;
+                        return "target." + error;
                 }
                 return null;
             };
@@ -966,10 +966,10 @@ $root.sym = (function() {
                         throw TypeError(".sym.messages.Expiration.schema: object expected");
                     message.schema = $root.sym.models.Schema.fromObject(object.schema);
                 }
-                if (object.approval != null) {
-                    if (typeof object.approval !== "object")
-                        throw TypeError(".sym.messages.Expiration.approval: object expected");
-                    message.approval = $root.sym.messages.Approval.fromObject(object.approval);
+                if (object.target != null) {
+                    if (typeof object.target !== "object")
+                        throw TypeError(".sym.messages.Expiration.target: object expected");
+                    message.target = $root.sym.messages.Expiration.Target.fromObject(object.target);
                 }
                 return message;
             };
@@ -990,14 +990,14 @@ $root.sym = (function() {
                 if (options.defaults) {
                     object.id = null;
                     object.schema = null;
-                    object.approval = null;
+                    object.target = null;
                 }
                 if (message.id != null && message.hasOwnProperty("id"))
                     object.id = $root.sym.models.UUID.toObject(message.id, options);
                 if (message.schema != null && message.hasOwnProperty("schema"))
                     object.schema = $root.sym.models.Schema.toObject(message.schema, options);
-                if (message.approval != null && message.hasOwnProperty("approval"))
-                    object.approval = $root.sym.messages.Approval.toObject(message.approval, options);
+                if (message.target != null && message.hasOwnProperty("target"))
+                    object.target = $root.sym.messages.Expiration.Target.toObject(message.target, options);
                 return object;
             };
 
@@ -1011,6 +1011,226 @@ $root.sym = (function() {
             Expiration.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
+
+            Expiration.Target = (function() {
+
+                /**
+                 * Properties of a Target.
+                 * @memberof sym.messages.Expiration
+                 * @interface ITarget
+                 * @property {sym.models.IUser|null} [user] Target user
+                 * @property {sym.models.IResource|null} [resource] Target resource
+                 */
+
+                /**
+                 * Constructs a new Target.
+                 * @memberof sym.messages.Expiration
+                 * @classdesc Represents a Target.
+                 * @implements ITarget
+                 * @constructor
+                 * @param {sym.messages.Expiration.ITarget=} [properties] Properties to set
+                 */
+                function Target(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * Target user.
+                 * @member {sym.models.IUser|null|undefined} user
+                 * @memberof sym.messages.Expiration.Target
+                 * @instance
+                 */
+                Target.prototype.user = null;
+
+                /**
+                 * Target resource.
+                 * @member {sym.models.IResource|null|undefined} resource
+                 * @memberof sym.messages.Expiration.Target
+                 * @instance
+                 */
+                Target.prototype.resource = null;
+
+                /**
+                 * Creates a new Target instance using the specified properties.
+                 * @function create
+                 * @memberof sym.messages.Expiration.Target
+                 * @static
+                 * @param {sym.messages.Expiration.ITarget=} [properties] Properties to set
+                 * @returns {sym.messages.Expiration.Target} Target instance
+                 */
+                Target.create = function create(properties) {
+                    return new Target(properties);
+                };
+
+                /**
+                 * Encodes the specified Target message. Does not implicitly {@link sym.messages.Expiration.Target.verify|verify} messages.
+                 * @function encode
+                 * @memberof sym.messages.Expiration.Target
+                 * @static
+                 * @param {sym.messages.Expiration.ITarget} message Target message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Target.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.user != null && Object.hasOwnProperty.call(message, "user"))
+                        $root.sym.models.User.encode(message.user, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    if (message.resource != null && Object.hasOwnProperty.call(message, "resource"))
+                        $root.sym.models.Resource.encode(message.resource, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Target message, length delimited. Does not implicitly {@link sym.messages.Expiration.Target.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof sym.messages.Expiration.Target
+                 * @static
+                 * @param {sym.messages.Expiration.ITarget} message Target message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Target.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a Target message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof sym.messages.Expiration.Target
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {sym.messages.Expiration.Target} Target
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Target.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.Expiration.Target();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1:
+                            message.user = $root.sym.models.User.decode(reader, reader.uint32());
+                            break;
+                        case 2:
+                            message.resource = $root.sym.models.Resource.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Decodes a Target message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof sym.messages.Expiration.Target
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {sym.messages.Expiration.Target} Target
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Target.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a Target message.
+                 * @function verify
+                 * @memberof sym.messages.Expiration.Target
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Target.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.user != null && message.hasOwnProperty("user")) {
+                        var error = $root.sym.models.User.verify(message.user);
+                        if (error)
+                            return "user." + error;
+                    }
+                    if (message.resource != null && message.hasOwnProperty("resource")) {
+                        var error = $root.sym.models.Resource.verify(message.resource);
+                        if (error)
+                            return "resource." + error;
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a Target message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof sym.messages.Expiration.Target
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {sym.messages.Expiration.Target} Target
+                 */
+                Target.fromObject = function fromObject(object) {
+                    if (object instanceof $root.sym.messages.Expiration.Target)
+                        return object;
+                    var message = new $root.sym.messages.Expiration.Target();
+                    if (object.user != null) {
+                        if (typeof object.user !== "object")
+                            throw TypeError(".sym.messages.Expiration.Target.user: object expected");
+                        message.user = $root.sym.models.User.fromObject(object.user);
+                    }
+                    if (object.resource != null) {
+                        if (typeof object.resource !== "object")
+                            throw TypeError(".sym.messages.Expiration.Target.resource: object expected");
+                        message.resource = $root.sym.models.Resource.fromObject(object.resource);
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a Target message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof sym.messages.Expiration.Target
+                 * @static
+                 * @param {sym.messages.Expiration.Target} message Target
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Target.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.user = null;
+                        object.resource = null;
+                    }
+                    if (message.user != null && message.hasOwnProperty("user"))
+                        object.user = $root.sym.models.User.toObject(message.user, options);
+                    if (message.resource != null && message.hasOwnProperty("resource"))
+                        object.resource = $root.sym.models.Resource.toObject(message.resource, options);
+                    return object;
+                };
+
+                /**
+                 * Converts this Target to JSON.
+                 * @function toJSON
+                 * @memberof sym.messages.Expiration.Target
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Target.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                return Target;
+            })();
 
             return Expiration;
         })();

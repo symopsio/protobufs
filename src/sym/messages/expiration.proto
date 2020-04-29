@@ -3,13 +3,18 @@ package sym.messages;
 
 option go_package = "github.com/symopsio/types/go/messages";
 
+import "sym/models/resource.proto";
 import "sym/models/schema.proto";
+import "sym/models/user.proto";
 import "sym/models/uuid.proto";
-import "sym/messages/approval.proto";
 
 /* Expiration messages represent an approval that is now expired */
 message Expiration {
+  message Target {
+    sym.models.User user = 1; // user to remove access from
+    sym.models.Resource resource = 2; // resource to remove access to
+  }
   sym.models.UUID id = 1;
   sym.models.Schema schema = 2;
-  Approval approval = 3;
+  Target target = 3;
 }
