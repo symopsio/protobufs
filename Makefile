@@ -16,9 +16,17 @@ go:
 		--go_opt=module=github.com/symopsio/types/go \
 		src/sym/messages/*.proto
 
+docs:
+	protoc --proto_path=src --doc_out=./docs \
+		--doc_opt=markdown,index.md \
+		src/sym/enums/*.proto \
+		src/sym/models/*.proto \
+		src/sym/messages/*.proto
+
+
 js:
 	pbjs -t static-module -w commonjs -o js/index.js \
 		src/**/*.proto
 	pbts -o js/index.d.ts js/index.js
 
-.PHONY: go js
+.PHONY: go js docs
