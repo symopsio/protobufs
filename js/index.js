@@ -67,7 +67,7 @@ $root.sym = (function() {
              * @interface IApproval
              * @property {sym.models.IUUID|null} [id] Approval id
              * @property {sym.models.ISchema|null} [schema] Approval schema
-             * @property {sym.messages.Approval.ITarget|null} [target] Approval target
+             * @property {sym.messages.IRequest|null} [request] Approval request
              * @property {sym.messages.Approval.IMeta|null} [meta] Approval meta
              */
 
@@ -103,12 +103,12 @@ $root.sym = (function() {
             Approval.prototype.schema = null;
 
             /**
-             * Approval target.
-             * @member {sym.messages.Approval.ITarget|null|undefined} target
+             * Approval request.
+             * @member {sym.messages.IRequest|null|undefined} request
              * @memberof sym.messages.Approval
              * @instance
              */
-            Approval.prototype.target = null;
+            Approval.prototype.request = null;
 
             /**
              * Approval meta.
@@ -146,8 +146,8 @@ $root.sym = (function() {
                     $root.sym.models.UUID.encode(message.id, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
                 if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
                     $root.sym.models.Schema.encode(message.schema, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                if (message.target != null && Object.hasOwnProperty.call(message, "target"))
-                    $root.sym.messages.Approval.Target.encode(message.target, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.request != null && Object.hasOwnProperty.call(message, "request"))
+                    $root.sym.messages.Request.encode(message.request, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 if (message.meta != null && Object.hasOwnProperty.call(message, "meta"))
                     $root.sym.messages.Approval.Meta.encode(message.meta, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
                 return writer;
@@ -191,7 +191,7 @@ $root.sym = (function() {
                         message.schema = $root.sym.models.Schema.decode(reader, reader.uint32());
                         break;
                     case 3:
-                        message.target = $root.sym.messages.Approval.Target.decode(reader, reader.uint32());
+                        message.request = $root.sym.messages.Request.decode(reader, reader.uint32());
                         break;
                     case 4:
                         message.meta = $root.sym.messages.Approval.Meta.decode(reader, reader.uint32());
@@ -241,10 +241,10 @@ $root.sym = (function() {
                     if (error)
                         return "schema." + error;
                 }
-                if (message.target != null && message.hasOwnProperty("target")) {
-                    var error = $root.sym.messages.Approval.Target.verify(message.target);
+                if (message.request != null && message.hasOwnProperty("request")) {
+                    var error = $root.sym.messages.Request.verify(message.request);
                     if (error)
-                        return "target." + error;
+                        return "request." + error;
                 }
                 if (message.meta != null && message.hasOwnProperty("meta")) {
                     var error = $root.sym.messages.Approval.Meta.verify(message.meta);
@@ -276,10 +276,10 @@ $root.sym = (function() {
                         throw TypeError(".sym.messages.Approval.schema: object expected");
                     message.schema = $root.sym.models.Schema.fromObject(object.schema);
                 }
-                if (object.target != null) {
-                    if (typeof object.target !== "object")
-                        throw TypeError(".sym.messages.Approval.target: object expected");
-                    message.target = $root.sym.messages.Approval.Target.fromObject(object.target);
+                if (object.request != null) {
+                    if (typeof object.request !== "object")
+                        throw TypeError(".sym.messages.Approval.request: object expected");
+                    message.request = $root.sym.messages.Request.fromObject(object.request);
                 }
                 if (object.meta != null) {
                     if (typeof object.meta !== "object")
@@ -305,15 +305,15 @@ $root.sym = (function() {
                 if (options.defaults) {
                     object.id = null;
                     object.schema = null;
-                    object.target = null;
+                    object.request = null;
                     object.meta = null;
                 }
                 if (message.id != null && message.hasOwnProperty("id"))
                     object.id = $root.sym.models.UUID.toObject(message.id, options);
                 if (message.schema != null && message.hasOwnProperty("schema"))
                     object.schema = $root.sym.models.Schema.toObject(message.schema, options);
-                if (message.target != null && message.hasOwnProperty("target"))
-                    object.target = $root.sym.messages.Approval.Target.toObject(message.target, options);
+                if (message.request != null && message.hasOwnProperty("request"))
+                    object.request = $root.sym.messages.Request.toObject(message.request, options);
                 if (message.meta != null && message.hasOwnProperty("meta"))
                     object.meta = $root.sym.messages.Approval.Meta.toObject(message.meta, options);
                 return object;
@@ -337,7 +337,6 @@ $root.sym = (function() {
                  * @memberof sym.messages.Approval
                  * @interface IMeta
                  * @property {sym.models.IUser|null} [approver] Meta approver
-                 * @property {string|null} [reason] Meta reason
                  */
 
                 /**
@@ -362,14 +361,6 @@ $root.sym = (function() {
                  * @instance
                  */
                 Meta.prototype.approver = null;
-
-                /**
-                 * Meta reason.
-                 * @member {string} reason
-                 * @memberof sym.messages.Approval.Meta
-                 * @instance
-                 */
-                Meta.prototype.reason = "";
 
                 /**
                  * Creates a new Meta instance using the specified properties.
@@ -397,8 +388,6 @@ $root.sym = (function() {
                         writer = $Writer.create();
                     if (message.approver != null && Object.hasOwnProperty.call(message, "approver"))
                         $root.sym.models.User.encode(message.approver, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.reason);
                     return writer;
                 };
 
@@ -435,9 +424,6 @@ $root.sym = (function() {
                         switch (tag >>> 3) {
                         case 1:
                             message.approver = $root.sym.models.User.decode(reader, reader.uint32());
-                            break;
-                        case 2:
-                            message.reason = reader.string();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -479,9 +465,6 @@ $root.sym = (function() {
                         if (error)
                             return "approver." + error;
                     }
-                    if (message.reason != null && message.hasOwnProperty("reason"))
-                        if (!$util.isString(message.reason))
-                            return "reason: string expected";
                     return null;
                 };
 
@@ -502,8 +485,6 @@ $root.sym = (function() {
                             throw TypeError(".sym.messages.Approval.Meta.approver: object expected");
                         message.approver = $root.sym.models.User.fromObject(object.approver);
                     }
-                    if (object.reason != null)
-                        message.reason = String(object.reason);
                     return message;
                 };
 
@@ -520,14 +501,10 @@ $root.sym = (function() {
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
+                    if (options.defaults)
                         object.approver = null;
-                        object.reason = "";
-                    }
                     if (message.approver != null && message.hasOwnProperty("approver"))
                         object.approver = $root.sym.models.User.toObject(message.approver, options);
-                    if (message.reason != null && message.hasOwnProperty("reason"))
-                        object.reason = message.reason;
                     return object;
                 };
 
@@ -543,226 +520,6 @@ $root.sym = (function() {
                 };
 
                 return Meta;
-            })();
-
-            Approval.Target = (function() {
-
-                /**
-                 * Properties of a Target.
-                 * @memberof sym.messages.Approval
-                 * @interface ITarget
-                 * @property {sym.models.IUser|null} [user] Target user
-                 * @property {sym.models.IResource|null} [resource] Target resource
-                 */
-
-                /**
-                 * Constructs a new Target.
-                 * @memberof sym.messages.Approval
-                 * @classdesc Represents a Target.
-                 * @implements ITarget
-                 * @constructor
-                 * @param {sym.messages.Approval.ITarget=} [properties] Properties to set
-                 */
-                function Target(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-
-                /**
-                 * Target user.
-                 * @member {sym.models.IUser|null|undefined} user
-                 * @memberof sym.messages.Approval.Target
-                 * @instance
-                 */
-                Target.prototype.user = null;
-
-                /**
-                 * Target resource.
-                 * @member {sym.models.IResource|null|undefined} resource
-                 * @memberof sym.messages.Approval.Target
-                 * @instance
-                 */
-                Target.prototype.resource = null;
-
-                /**
-                 * Creates a new Target instance using the specified properties.
-                 * @function create
-                 * @memberof sym.messages.Approval.Target
-                 * @static
-                 * @param {sym.messages.Approval.ITarget=} [properties] Properties to set
-                 * @returns {sym.messages.Approval.Target} Target instance
-                 */
-                Target.create = function create(properties) {
-                    return new Target(properties);
-                };
-
-                /**
-                 * Encodes the specified Target message. Does not implicitly {@link sym.messages.Approval.Target.verify|verify} messages.
-                 * @function encode
-                 * @memberof sym.messages.Approval.Target
-                 * @static
-                 * @param {sym.messages.Approval.ITarget} message Target message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Target.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.user != null && Object.hasOwnProperty.call(message, "user"))
-                        $root.sym.models.User.encode(message.user, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.resource != null && Object.hasOwnProperty.call(message, "resource"))
-                        $root.sym.models.Resource.encode(message.resource, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified Target message, length delimited. Does not implicitly {@link sym.messages.Approval.Target.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof sym.messages.Approval.Target
-                 * @static
-                 * @param {sym.messages.Approval.ITarget} message Target message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Target.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-
-                /**
-                 * Decodes a Target message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof sym.messages.Approval.Target
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {sym.messages.Approval.Target} Target
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Target.decode = function decode(reader, length) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.Approval.Target();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        switch (tag >>> 3) {
-                        case 1:
-                            message.user = $root.sym.models.User.decode(reader, reader.uint32());
-                            break;
-                        case 2:
-                            message.resource = $root.sym.models.Resource.decode(reader, reader.uint32());
-                            break;
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Decodes a Target message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof sym.messages.Approval.Target
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {sym.messages.Approval.Target} Target
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Target.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a Target message.
-                 * @function verify
-                 * @memberof sym.messages.Approval.Target
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                Target.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.user != null && message.hasOwnProperty("user")) {
-                        var error = $root.sym.models.User.verify(message.user);
-                        if (error)
-                            return "user." + error;
-                    }
-                    if (message.resource != null && message.hasOwnProperty("resource")) {
-                        var error = $root.sym.models.Resource.verify(message.resource);
-                        if (error)
-                            return "resource." + error;
-                    }
-                    return null;
-                };
-
-                /**
-                 * Creates a Target message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof sym.messages.Approval.Target
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {sym.messages.Approval.Target} Target
-                 */
-                Target.fromObject = function fromObject(object) {
-                    if (object instanceof $root.sym.messages.Approval.Target)
-                        return object;
-                    var message = new $root.sym.messages.Approval.Target();
-                    if (object.user != null) {
-                        if (typeof object.user !== "object")
-                            throw TypeError(".sym.messages.Approval.Target.user: object expected");
-                        message.user = $root.sym.models.User.fromObject(object.user);
-                    }
-                    if (object.resource != null) {
-                        if (typeof object.resource !== "object")
-                            throw TypeError(".sym.messages.Approval.Target.resource: object expected");
-                        message.resource = $root.sym.models.Resource.fromObject(object.resource);
-                    }
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a Target message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof sym.messages.Approval.Target
-                 * @static
-                 * @param {sym.messages.Approval.Target} message Target
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                Target.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.defaults) {
-                        object.user = null;
-                        object.resource = null;
-                    }
-                    if (message.user != null && message.hasOwnProperty("user"))
-                        object.user = $root.sym.models.User.toObject(message.user, options);
-                    if (message.resource != null && message.hasOwnProperty("resource"))
-                        object.resource = $root.sym.models.Resource.toObject(message.resource, options);
-                    return object;
-                };
-
-                /**
-                 * Converts this Target to JSON.
-                 * @function toJSON
-                 * @memberof sym.messages.Approval.Target
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                Target.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                return Target;
             })();
 
             return Approval;
@@ -1233,6 +990,687 @@ $root.sym = (function() {
             })();
 
             return Expiration;
+        })();
+
+        messages.Request = (function() {
+
+            /**
+             * Properties of a Request.
+             * @memberof sym.messages
+             * @interface IRequest
+             * @property {sym.models.IUUID|null} [id] Request id
+             * @property {sym.models.ISchema|null} [schema] Request schema
+             * @property {sym.messages.Request.ITarget|null} [target] Request target
+             * @property {sym.messages.Request.IMeta|null} [meta] Request meta
+             */
+
+            /**
+             * Constructs a new Request.
+             * @memberof sym.messages
+             * @classdesc Represents a Request.
+             * @implements IRequest
+             * @constructor
+             * @param {sym.messages.IRequest=} [properties] Properties to set
+             */
+            function Request(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Request id.
+             * @member {sym.models.IUUID|null|undefined} id
+             * @memberof sym.messages.Request
+             * @instance
+             */
+            Request.prototype.id = null;
+
+            /**
+             * Request schema.
+             * @member {sym.models.ISchema|null|undefined} schema
+             * @memberof sym.messages.Request
+             * @instance
+             */
+            Request.prototype.schema = null;
+
+            /**
+             * Request target.
+             * @member {sym.messages.Request.ITarget|null|undefined} target
+             * @memberof sym.messages.Request
+             * @instance
+             */
+            Request.prototype.target = null;
+
+            /**
+             * Request meta.
+             * @member {sym.messages.Request.IMeta|null|undefined} meta
+             * @memberof sym.messages.Request
+             * @instance
+             */
+            Request.prototype.meta = null;
+
+            /**
+             * Creates a new Request instance using the specified properties.
+             * @function create
+             * @memberof sym.messages.Request
+             * @static
+             * @param {sym.messages.IRequest=} [properties] Properties to set
+             * @returns {sym.messages.Request} Request instance
+             */
+            Request.create = function create(properties) {
+                return new Request(properties);
+            };
+
+            /**
+             * Encodes the specified Request message. Does not implicitly {@link sym.messages.Request.verify|verify} messages.
+             * @function encode
+             * @memberof sym.messages.Request
+             * @static
+             * @param {sym.messages.IRequest} message Request message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Request.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    $root.sym.models.UUID.encode(message.id, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
+                    $root.sym.models.Schema.encode(message.schema, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.target != null && Object.hasOwnProperty.call(message, "target"))
+                    $root.sym.messages.Request.Target.encode(message.target, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.meta != null && Object.hasOwnProperty.call(message, "meta"))
+                    $root.sym.messages.Request.Meta.encode(message.meta, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Request message, length delimited. Does not implicitly {@link sym.messages.Request.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof sym.messages.Request
+             * @static
+             * @param {sym.messages.IRequest} message Request message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Request.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Request message from the specified reader or buffer.
+             * @function decode
+             * @memberof sym.messages.Request
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {sym.messages.Request} Request
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Request.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.Request();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = $root.sym.models.UUID.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.schema = $root.sym.models.Schema.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.target = $root.sym.messages.Request.Target.decode(reader, reader.uint32());
+                        break;
+                    case 4:
+                        message.meta = $root.sym.messages.Request.Meta.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Request message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof sym.messages.Request
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {sym.messages.Request} Request
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Request.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Request message.
+             * @function verify
+             * @memberof sym.messages.Request
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Request.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id")) {
+                    var error = $root.sym.models.UUID.verify(message.id);
+                    if (error)
+                        return "id." + error;
+                }
+                if (message.schema != null && message.hasOwnProperty("schema")) {
+                    var error = $root.sym.models.Schema.verify(message.schema);
+                    if (error)
+                        return "schema." + error;
+                }
+                if (message.target != null && message.hasOwnProperty("target")) {
+                    var error = $root.sym.messages.Request.Target.verify(message.target);
+                    if (error)
+                        return "target." + error;
+                }
+                if (message.meta != null && message.hasOwnProperty("meta")) {
+                    var error = $root.sym.messages.Request.Meta.verify(message.meta);
+                    if (error)
+                        return "meta." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a Request message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof sym.messages.Request
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {sym.messages.Request} Request
+             */
+            Request.fromObject = function fromObject(object) {
+                if (object instanceof $root.sym.messages.Request)
+                    return object;
+                var message = new $root.sym.messages.Request();
+                if (object.id != null) {
+                    if (typeof object.id !== "object")
+                        throw TypeError(".sym.messages.Request.id: object expected");
+                    message.id = $root.sym.models.UUID.fromObject(object.id);
+                }
+                if (object.schema != null) {
+                    if (typeof object.schema !== "object")
+                        throw TypeError(".sym.messages.Request.schema: object expected");
+                    message.schema = $root.sym.models.Schema.fromObject(object.schema);
+                }
+                if (object.target != null) {
+                    if (typeof object.target !== "object")
+                        throw TypeError(".sym.messages.Request.target: object expected");
+                    message.target = $root.sym.messages.Request.Target.fromObject(object.target);
+                }
+                if (object.meta != null) {
+                    if (typeof object.meta !== "object")
+                        throw TypeError(".sym.messages.Request.meta: object expected");
+                    message.meta = $root.sym.messages.Request.Meta.fromObject(object.meta);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Request message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof sym.messages.Request
+             * @static
+             * @param {sym.messages.Request} message Request
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Request.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = null;
+                    object.schema = null;
+                    object.target = null;
+                    object.meta = null;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = $root.sym.models.UUID.toObject(message.id, options);
+                if (message.schema != null && message.hasOwnProperty("schema"))
+                    object.schema = $root.sym.models.Schema.toObject(message.schema, options);
+                if (message.target != null && message.hasOwnProperty("target"))
+                    object.target = $root.sym.messages.Request.Target.toObject(message.target, options);
+                if (message.meta != null && message.hasOwnProperty("meta"))
+                    object.meta = $root.sym.messages.Request.Meta.toObject(message.meta, options);
+                return object;
+            };
+
+            /**
+             * Converts this Request to JSON.
+             * @function toJSON
+             * @memberof sym.messages.Request
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Request.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            Request.Meta = (function() {
+
+                /**
+                 * Properties of a Meta.
+                 * @memberof sym.messages.Request
+                 * @interface IMeta
+                 * @property {string|null} [reason] Meta reason
+                 */
+
+                /**
+                 * Constructs a new Meta.
+                 * @memberof sym.messages.Request
+                 * @classdesc Represents a Meta.
+                 * @implements IMeta
+                 * @constructor
+                 * @param {sym.messages.Request.IMeta=} [properties] Properties to set
+                 */
+                function Meta(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * Meta reason.
+                 * @member {string} reason
+                 * @memberof sym.messages.Request.Meta
+                 * @instance
+                 */
+                Meta.prototype.reason = "";
+
+                /**
+                 * Creates a new Meta instance using the specified properties.
+                 * @function create
+                 * @memberof sym.messages.Request.Meta
+                 * @static
+                 * @param {sym.messages.Request.IMeta=} [properties] Properties to set
+                 * @returns {sym.messages.Request.Meta} Meta instance
+                 */
+                Meta.create = function create(properties) {
+                    return new Meta(properties);
+                };
+
+                /**
+                 * Encodes the specified Meta message. Does not implicitly {@link sym.messages.Request.Meta.verify|verify} messages.
+                 * @function encode
+                 * @memberof sym.messages.Request.Meta
+                 * @static
+                 * @param {sym.messages.Request.IMeta} message Meta message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Meta.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.reason);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Meta message, length delimited. Does not implicitly {@link sym.messages.Request.Meta.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof sym.messages.Request.Meta
+                 * @static
+                 * @param {sym.messages.Request.IMeta} message Meta message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Meta.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a Meta message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof sym.messages.Request.Meta
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {sym.messages.Request.Meta} Meta
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Meta.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.Request.Meta();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1:
+                            message.reason = reader.string();
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Decodes a Meta message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof sym.messages.Request.Meta
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {sym.messages.Request.Meta} Meta
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Meta.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a Meta message.
+                 * @function verify
+                 * @memberof sym.messages.Request.Meta
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Meta.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.reason != null && message.hasOwnProperty("reason"))
+                        if (!$util.isString(message.reason))
+                            return "reason: string expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a Meta message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof sym.messages.Request.Meta
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {sym.messages.Request.Meta} Meta
+                 */
+                Meta.fromObject = function fromObject(object) {
+                    if (object instanceof $root.sym.messages.Request.Meta)
+                        return object;
+                    var message = new $root.sym.messages.Request.Meta();
+                    if (object.reason != null)
+                        message.reason = String(object.reason);
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a Meta message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof sym.messages.Request.Meta
+                 * @static
+                 * @param {sym.messages.Request.Meta} message Meta
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Meta.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults)
+                        object.reason = "";
+                    if (message.reason != null && message.hasOwnProperty("reason"))
+                        object.reason = message.reason;
+                    return object;
+                };
+
+                /**
+                 * Converts this Meta to JSON.
+                 * @function toJSON
+                 * @memberof sym.messages.Request.Meta
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Meta.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                return Meta;
+            })();
+
+            Request.Target = (function() {
+
+                /**
+                 * Properties of a Target.
+                 * @memberof sym.messages.Request
+                 * @interface ITarget
+                 * @property {sym.models.IUser|null} [user] Target user
+                 * @property {sym.models.IResource|null} [resource] Target resource
+                 */
+
+                /**
+                 * Constructs a new Target.
+                 * @memberof sym.messages.Request
+                 * @classdesc Represents a Target.
+                 * @implements ITarget
+                 * @constructor
+                 * @param {sym.messages.Request.ITarget=} [properties] Properties to set
+                 */
+                function Target(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * Target user.
+                 * @member {sym.models.IUser|null|undefined} user
+                 * @memberof sym.messages.Request.Target
+                 * @instance
+                 */
+                Target.prototype.user = null;
+
+                /**
+                 * Target resource.
+                 * @member {sym.models.IResource|null|undefined} resource
+                 * @memberof sym.messages.Request.Target
+                 * @instance
+                 */
+                Target.prototype.resource = null;
+
+                /**
+                 * Creates a new Target instance using the specified properties.
+                 * @function create
+                 * @memberof sym.messages.Request.Target
+                 * @static
+                 * @param {sym.messages.Request.ITarget=} [properties] Properties to set
+                 * @returns {sym.messages.Request.Target} Target instance
+                 */
+                Target.create = function create(properties) {
+                    return new Target(properties);
+                };
+
+                /**
+                 * Encodes the specified Target message. Does not implicitly {@link sym.messages.Request.Target.verify|verify} messages.
+                 * @function encode
+                 * @memberof sym.messages.Request.Target
+                 * @static
+                 * @param {sym.messages.Request.ITarget} message Target message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Target.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.user != null && Object.hasOwnProperty.call(message, "user"))
+                        $root.sym.models.User.encode(message.user, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    if (message.resource != null && Object.hasOwnProperty.call(message, "resource"))
+                        $root.sym.models.Resource.encode(message.resource, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Target message, length delimited. Does not implicitly {@link sym.messages.Request.Target.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof sym.messages.Request.Target
+                 * @static
+                 * @param {sym.messages.Request.ITarget} message Target message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Target.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a Target message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof sym.messages.Request.Target
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {sym.messages.Request.Target} Target
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Target.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.Request.Target();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1:
+                            message.user = $root.sym.models.User.decode(reader, reader.uint32());
+                            break;
+                        case 2:
+                            message.resource = $root.sym.models.Resource.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Decodes a Target message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof sym.messages.Request.Target
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {sym.messages.Request.Target} Target
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Target.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a Target message.
+                 * @function verify
+                 * @memberof sym.messages.Request.Target
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Target.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.user != null && message.hasOwnProperty("user")) {
+                        var error = $root.sym.models.User.verify(message.user);
+                        if (error)
+                            return "user." + error;
+                    }
+                    if (message.resource != null && message.hasOwnProperty("resource")) {
+                        var error = $root.sym.models.Resource.verify(message.resource);
+                        if (error)
+                            return "resource." + error;
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a Target message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof sym.messages.Request.Target
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {sym.messages.Request.Target} Target
+                 */
+                Target.fromObject = function fromObject(object) {
+                    if (object instanceof $root.sym.messages.Request.Target)
+                        return object;
+                    var message = new $root.sym.messages.Request.Target();
+                    if (object.user != null) {
+                        if (typeof object.user !== "object")
+                            throw TypeError(".sym.messages.Request.Target.user: object expected");
+                        message.user = $root.sym.models.User.fromObject(object.user);
+                    }
+                    if (object.resource != null) {
+                        if (typeof object.resource !== "object")
+                            throw TypeError(".sym.messages.Request.Target.resource: object expected");
+                        message.resource = $root.sym.models.Resource.fromObject(object.resource);
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a Target message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof sym.messages.Request.Target
+                 * @static
+                 * @param {sym.messages.Request.Target} message Target
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Target.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.user = null;
+                        object.resource = null;
+                    }
+                    if (message.user != null && message.hasOwnProperty("user"))
+                        object.user = $root.sym.models.User.toObject(message.user, options);
+                    if (message.resource != null && message.hasOwnProperty("resource"))
+                        object.resource = $root.sym.models.Resource.toObject(message.resource, options);
+                    return object;
+                };
+
+                /**
+                 * Converts this Target to JSON.
+                 * @function toJSON
+                 * @memberof sym.messages.Request.Target
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Target.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                return Target;
+            })();
+
+            return Request;
         })();
 
         messages.EscalationResponse = (function() {

@@ -27,8 +27,8 @@ export namespace sym {
             /** Approval schema */
             schema?: (sym.models.ISchema|null);
 
-            /** Approval target */
-            target?: (sym.messages.Approval.ITarget|null);
+            /** Approval request */
+            request?: (sym.messages.IRequest|null);
 
             /** Approval meta */
             meta?: (sym.messages.Approval.IMeta|null);
@@ -49,8 +49,8 @@ export namespace sym {
             /** Approval schema. */
             public schema?: (sym.models.ISchema|null);
 
-            /** Approval target. */
-            public target?: (sym.messages.Approval.ITarget|null);
+            /** Approval request. */
+            public request?: (sym.messages.IRequest|null);
 
             /** Approval meta. */
             public meta?: (sym.messages.Approval.IMeta|null);
@@ -133,9 +133,6 @@ export namespace sym {
 
                 /** Meta approver */
                 approver?: (sym.models.IUser|null);
-
-                /** Meta reason */
-                reason?: (string|null);
             }
 
             /** Represents a Meta. */
@@ -149,9 +146,6 @@ export namespace sym {
 
                 /** Meta approver. */
                 public approver?: (sym.models.IUser|null);
-
-                /** Meta reason. */
-                public reason: string;
 
                 /**
                  * Creates a new Meta instance using the specified properties.
@@ -219,102 +213,6 @@ export namespace sym {
 
                 /**
                  * Converts this Meta to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a Target. */
-            interface ITarget {
-
-                /** Target user */
-                user?: (sym.models.IUser|null);
-
-                /** Target resource */
-                resource?: (sym.models.IResource|null);
-            }
-
-            /** Represents a Target. */
-            class Target implements ITarget {
-
-                /**
-                 * Constructs a new Target.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: sym.messages.Approval.ITarget);
-
-                /** Target user. */
-                public user?: (sym.models.IUser|null);
-
-                /** Target resource. */
-                public resource?: (sym.models.IResource|null);
-
-                /**
-                 * Creates a new Target instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns Target instance
-                 */
-                public static create(properties?: sym.messages.Approval.ITarget): sym.messages.Approval.Target;
-
-                /**
-                 * Encodes the specified Target message. Does not implicitly {@link sym.messages.Approval.Target.verify|verify} messages.
-                 * @param message Target message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: sym.messages.Approval.ITarget, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified Target message, length delimited. Does not implicitly {@link sym.messages.Approval.Target.verify|verify} messages.
-                 * @param message Target message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: sym.messages.Approval.ITarget, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a Target message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns Target
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Approval.Target;
-
-                /**
-                 * Decodes a Target message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns Target
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Approval.Target;
-
-                /**
-                 * Verifies a Target message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a Target message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns Target
-                 */
-                public static fromObject(object: { [k: string]: any }): sym.messages.Approval.Target;
-
-                /**
-                 * Creates a plain object from a Target message. Also converts values to other types if specified.
-                 * @param message Target
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: sym.messages.Approval.Target, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this Target to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
@@ -513,6 +411,303 @@ export namespace sym {
                  * @returns Plain object
                  */
                 public static toObject(message: sym.messages.Expiration.Target, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this Target to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+            }
+        }
+
+        /** Properties of a Request. */
+        interface IRequest {
+
+            /** Request id */
+            id?: (sym.models.IUUID|null);
+
+            /** Request schema */
+            schema?: (sym.models.ISchema|null);
+
+            /** Request target */
+            target?: (sym.messages.Request.ITarget|null);
+
+            /** Request meta */
+            meta?: (sym.messages.Request.IMeta|null);
+        }
+
+        /** Represents a Request. */
+        class Request implements IRequest {
+
+            /**
+             * Constructs a new Request.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: sym.messages.IRequest);
+
+            /** Request id. */
+            public id?: (sym.models.IUUID|null);
+
+            /** Request schema. */
+            public schema?: (sym.models.ISchema|null);
+
+            /** Request target. */
+            public target?: (sym.messages.Request.ITarget|null);
+
+            /** Request meta. */
+            public meta?: (sym.messages.Request.IMeta|null);
+
+            /**
+             * Creates a new Request instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Request instance
+             */
+            public static create(properties?: sym.messages.IRequest): sym.messages.Request;
+
+            /**
+             * Encodes the specified Request message. Does not implicitly {@link sym.messages.Request.verify|verify} messages.
+             * @param message Request message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: sym.messages.IRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Request message, length delimited. Does not implicitly {@link sym.messages.Request.verify|verify} messages.
+             * @param message Request message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: sym.messages.IRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Request message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Request
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Request;
+
+            /**
+             * Decodes a Request message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Request
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Request;
+
+            /**
+             * Verifies a Request message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Request message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Request
+             */
+            public static fromObject(object: { [k: string]: any }): sym.messages.Request;
+
+            /**
+             * Creates a plain object from a Request message. Also converts values to other types if specified.
+             * @param message Request
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: sym.messages.Request, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Request to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        namespace Request {
+
+            /** Properties of a Meta. */
+            interface IMeta {
+
+                /** Meta reason */
+                reason?: (string|null);
+            }
+
+            /** Represents a Meta. */
+            class Meta implements IMeta {
+
+                /**
+                 * Constructs a new Meta.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: sym.messages.Request.IMeta);
+
+                /** Meta reason. */
+                public reason: string;
+
+                /**
+                 * Creates a new Meta instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns Meta instance
+                 */
+                public static create(properties?: sym.messages.Request.IMeta): sym.messages.Request.Meta;
+
+                /**
+                 * Encodes the specified Meta message. Does not implicitly {@link sym.messages.Request.Meta.verify|verify} messages.
+                 * @param message Meta message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: sym.messages.Request.IMeta, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified Meta message, length delimited. Does not implicitly {@link sym.messages.Request.Meta.verify|verify} messages.
+                 * @param message Meta message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: sym.messages.Request.IMeta, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a Meta message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns Meta
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Request.Meta;
+
+                /**
+                 * Decodes a Meta message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns Meta
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Request.Meta;
+
+                /**
+                 * Verifies a Meta message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a Meta message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns Meta
+                 */
+                public static fromObject(object: { [k: string]: any }): sym.messages.Request.Meta;
+
+                /**
+                 * Creates a plain object from a Meta message. Also converts values to other types if specified.
+                 * @param message Meta
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: sym.messages.Request.Meta, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this Meta to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+            }
+
+            /** Properties of a Target. */
+            interface ITarget {
+
+                /** Target user */
+                user?: (sym.models.IUser|null);
+
+                /** Target resource */
+                resource?: (sym.models.IResource|null);
+            }
+
+            /** Represents a Target. */
+            class Target implements ITarget {
+
+                /**
+                 * Constructs a new Target.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: sym.messages.Request.ITarget);
+
+                /** Target user. */
+                public user?: (sym.models.IUser|null);
+
+                /** Target resource. */
+                public resource?: (sym.models.IResource|null);
+
+                /**
+                 * Creates a new Target instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns Target instance
+                 */
+                public static create(properties?: sym.messages.Request.ITarget): sym.messages.Request.Target;
+
+                /**
+                 * Encodes the specified Target message. Does not implicitly {@link sym.messages.Request.Target.verify|verify} messages.
+                 * @param message Target message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: sym.messages.Request.ITarget, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified Target message, length delimited. Does not implicitly {@link sym.messages.Request.Target.verify|verify} messages.
+                 * @param message Target message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: sym.messages.Request.ITarget, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a Target message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns Target
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Request.Target;
+
+                /**
+                 * Decodes a Target message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns Target
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Request.Target;
+
+                /**
+                 * Verifies a Target message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a Target message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns Target
+                 */
+                public static fromObject(object: { [k: string]: any }): sym.messages.Request.Target;
+
+                /**
+                 * Creates a plain object from a Target message. Also converts values to other types if specified.
+                 * @param message Target
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: sym.messages.Request.Target, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
                  * Converts this Target to JSON.
