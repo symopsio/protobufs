@@ -37,7 +37,7 @@ type User struct {
 	// current_identity is the system the user is currently interacting with sym
 	// from
 	CurrentIdentity *User_Identity   `protobuf:"bytes,2,opt,name=current_identity,json=currentIdentity,proto3" json:"current_identity,omitempty"`
-	Identities      []*User_Identity `protobuf:"bytes,3,rep,name=identities,proto3" json:"identities,omitempty"`
+	Identities      []*User_Identity `protobuf:"bytes,3,rep,name=identities,proto3" json:"identities,omitempty"` // identities this user has
 }
 
 func (x *User) Reset() {
@@ -93,6 +93,7 @@ func (x *User) GetIdentities() []*User_Identity {
 	return nil
 }
 
+// Identity of the user in a given service
 type User_Identity struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

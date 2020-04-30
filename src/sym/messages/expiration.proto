@@ -10,11 +10,12 @@ import "sym/models/uuid.proto";
 
 /* Expiration messages represent an approval that is now expired */
 message Expiration {
+  /* Target combines the expiring user and resource */
   message Target {
     sym.models.User user = 1; // user to remove access from
     sym.models.Resource resource = 2; // resource to remove access to
   }
   sym.models.UUID id = 1;
   sym.models.Schema schema = 2;
-  Target target = 3;
+  Target target = 3; // The expiring user and resource
 }

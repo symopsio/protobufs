@@ -8,6 +8,7 @@ import "sym/models/uuid.proto";
 
 /* User holds multiple Identities for various integrated services. */
 message User {
+  /* Identity of the user in a given service */
   message Identity {
     sym.enums.Service service = 1;
     string id = 2;
@@ -19,5 +20,5 @@ message User {
   /* current_identity is the system the user is currently interacting with sym
    * from */
   Identity current_identity = 2;
-  repeated Identity identities = 3;
+  repeated Identity identities = 3; // identities this user has
 }

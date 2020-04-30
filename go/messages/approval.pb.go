@@ -34,8 +34,8 @@ type Approval struct {
 
 	Id      *models.UUID   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Schema  *models.Schema `protobuf:"bytes,2,opt,name=schema,proto3" json:"schema,omitempty"`
-	Request *Request       `protobuf:"bytes,3,opt,name=request,proto3" json:"request,omitempty"`
-	Meta    *Approval_Meta `protobuf:"bytes,4,opt,name=meta,proto3" json:"meta,omitempty"`
+	Request *Request       `protobuf:"bytes,3,opt,name=request,proto3" json:"request,omitempty"` // The request that was approved
+	Meta    *Approval_Meta `protobuf:"bytes,4,opt,name=meta,proto3" json:"meta,omitempty"`       // Metadata about the approval
 }
 
 func (x *Approval) Reset() {
@@ -98,12 +98,13 @@ func (x *Approval) GetMeta() *Approval_Meta {
 	return nil
 }
 
+// Metadata about an approval
 type Approval_Meta struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Approver *models.User `protobuf:"bytes,1,opt,name=approver,proto3" json:"approver,omitempty"`
+	Approver *models.User `protobuf:"bytes,1,opt,name=approver,proto3" json:"approver,omitempty"` // The approving user
 }
 
 func (x *Approval_Meta) Reset() {

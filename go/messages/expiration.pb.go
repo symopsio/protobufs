@@ -34,7 +34,7 @@ type Expiration struct {
 
 	Id     *models.UUID       `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Schema *models.Schema     `protobuf:"bytes,2,opt,name=schema,proto3" json:"schema,omitempty"`
-	Target *Expiration_Target `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"`
+	Target *Expiration_Target `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"` // The expiring user and resource
 }
 
 func (x *Expiration) Reset() {
@@ -90,6 +90,7 @@ func (x *Expiration) GetTarget() *Expiration_Target {
 	return nil
 }
 
+// Target combines the expiring user and resource
 type Expiration_Target struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

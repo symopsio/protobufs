@@ -29,11 +29,11 @@ const _ = proto.ProtoPackageIsVersion4
 type Service int32
 
 const (
-	Service_UNKNOWN Service = 0
-	Service_SLACK   Service = 1
-	Service_OKTA    Service = 2
-	Service_AWS     Service = 3
-	Service_CUSTOM  Service = 4
+	Service_UNKNOWN Service = 0 // Unidentified service
+	Service_SLACK   Service = 1 // Slack
+	Service_OKTA    Service = 2 // Okta
+	Service_AWS     Service = 3 // AWS
+	Service_CUSTOM  Service = 4 // Customer service
 )
 
 // Enum value maps for Service.

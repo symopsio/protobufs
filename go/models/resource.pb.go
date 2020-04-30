@@ -32,8 +32,8 @@ type Resource struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Service enums.Service `protobuf:"varint,1,opt,name=service,proto3,enum=sym.enums.Service" json:"service,omitempty"`
-	Id      string        `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Service enums.Service `protobuf:"varint,1,opt,name=service,proto3,enum=sym.enums.Service" json:"service,omitempty"` // The service this is a resource in
+	Id      string        `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`                                   // How the resource is identified
 }
 
 func (x *Resource) Reset() {

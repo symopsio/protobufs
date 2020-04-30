@@ -10,11 +10,12 @@ import "sym/models/uuid.proto";
 
 /* Approval messages represent approval for a target user to use a resource */
 message Approval {
+  /* Metadata about an approval */
   message Meta {
-    sym.models.User approver = 1;
+    sym.models.User approver = 1; // The approving user
   }
   sym.models.UUID id = 1;
   sym.models.Schema schema = 2;
-  sym.messages.Request request = 3;
-  Meta meta = 4;
+  sym.messages.Request request = 3; // The request that was approved
+  Meta meta = 4; // Metadata about the approval
 }

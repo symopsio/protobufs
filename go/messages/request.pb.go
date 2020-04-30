@@ -26,6 +26,7 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+// Request represents some user request for access
 type Request struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -33,8 +34,8 @@ type Request struct {
 
 	Id     *models.UUID    `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Schema *models.Schema  `protobuf:"bytes,2,opt,name=schema,proto3" json:"schema,omitempty"`
-	Target *Request_Target `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"`
-	Meta   *Request_Meta   `protobuf:"bytes,4,opt,name=meta,proto3" json:"meta,omitempty"`
+	Target *Request_Target `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"` // The expirng user and resource
+	Meta   *Request_Meta   `protobuf:"bytes,4,opt,name=meta,proto3" json:"meta,omitempty"`     // Metadata about the request
 }
 
 func (x *Request) Reset() {
@@ -97,6 +98,7 @@ func (x *Request) GetMeta() *Request_Meta {
 	return nil
 }
 
+// Metadata about the request
 type Request_Meta struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -144,6 +146,7 @@ func (x *Request_Meta) GetReason() string {
 	return ""
 }
 
+// Target combines the requesting user and resource
 type Request_Target struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

@@ -56,11 +56,11 @@ Service represents a system Sym integrates with
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| UNKNOWN | 0 |  |
-| SLACK | 1 |  |
-| OKTA | 2 |  |
-| AWS | 3 |  |
-| CUSTOM | 4 |  |
+| UNKNOWN | 0 | Unidentified service |
+| SLACK | 1 | Slack |
+| OKTA | 2 | Okta |
+| AWS | 3 | AWS |
+| CUSTOM | 4 | Customer service |
 
 
  
@@ -86,8 +86,8 @@ Resource represents some entity from a given service
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| service | [sym.enums.Service](#sym.enums.Service) |  |  |
-| id | [string](#string) |  |  |
+| service | [sym.enums.Service](#sym.enums.Service) |  | The service this is a resource in |
+| id | [string](#string) |  | How the resource is identified |
 
 
 
@@ -151,7 +151,7 @@ User holds multiple Identities for various integrated services.
 | ----- | ---- | ----- | ----------- |
 | uuid | [UUID](#sym.models.UUID) |  | The uuid for a user remains constant across all services |
 | current_identity | [User.Identity](#sym.models.User.Identity) |  | current_identity is the system the user is currently interacting with sym from |
-| identities | [User.Identity](#sym.models.User.Identity) | repeated |  |
+| identities | [User.Identity](#sym.models.User.Identity) | repeated | identities this user has |
 
 
 
@@ -161,7 +161,7 @@ User holds multiple Identities for various integrated services.
 <a name="sym.models.User.Identity"></a>
 
 ### User.Identity
-
+Identity of the user in a given service
 
 
 | Field | Type | Label | Description |
@@ -231,8 +231,8 @@ Approval messages represent approval for a target user to use a resource
 | ----- | ---- | ----- | ----------- |
 | id | [sym.models.UUID](#sym.models.UUID) |  |  |
 | schema | [sym.models.Schema](#sym.models.Schema) |  |  |
-| request | [Request](#sym.messages.Request) |  |  |
-| meta | [Approval.Meta](#sym.messages.Approval.Meta) |  |  |
+| request | [Request](#sym.messages.Request) |  | The request that was approved |
+| meta | [Approval.Meta](#sym.messages.Approval.Meta) |  | Metadata about the approval |
 
 
 
@@ -242,12 +242,12 @@ Approval messages represent approval for a target user to use a resource
 <a name="sym.messages.Approval.Meta"></a>
 
 ### Approval.Meta
-
+Metadata about an approval
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| approver | [sym.models.User](#sym.models.User) |  |  |
+| approver | [sym.models.User](#sym.models.User) |  | The approving user |
 
 
 
@@ -280,7 +280,7 @@ Expiration messages represent an approval that is now expired
 | ----- | ---- | ----- | ----------- |
 | id | [sym.models.UUID](#sym.models.UUID) |  |  |
 | schema | [sym.models.Schema](#sym.models.Schema) |  |  |
-| target | [Expiration.Target](#sym.messages.Expiration.Target) |  |  |
+| target | [Expiration.Target](#sym.messages.Expiration.Target) |  | The expiring user and resource |
 
 
 
@@ -290,7 +290,7 @@ Expiration messages represent an approval that is now expired
 <a name="sym.messages.Expiration.Target"></a>
 
 ### Expiration.Target
-
+Target combines the expiring user and resource
 
 
 | Field | Type | Label | Description |
@@ -322,15 +322,15 @@ Expiration messages represent an approval that is now expired
 <a name="sym.messages.Request"></a>
 
 ### Request
-
+Request represents some user request for access
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [sym.models.UUID](#sym.models.UUID) |  |  |
 | schema | [sym.models.Schema](#sym.models.Schema) |  |  |
-| target | [Request.Target](#sym.messages.Request.Target) |  |  |
-| meta | [Request.Meta](#sym.messages.Request.Meta) |  |  |
+| target | [Request.Target](#sym.messages.Request.Target) |  | The expirng user and resource |
+| meta | [Request.Meta](#sym.messages.Request.Meta) |  | Metadata about the request |
 
 
 
@@ -340,7 +340,7 @@ Expiration messages represent an approval that is now expired
 <a name="sym.messages.Request.Meta"></a>
 
 ### Request.Meta
-
+Metadata about the request
 
 
 | Field | Type | Label | Description |
@@ -355,7 +355,7 @@ Expiration messages represent an approval that is now expired
 <a name="sym.messages.Request.Target"></a>
 
 ### Request.Target
-
+Target combines the requesting user and resource
 
 
 | Field | Type | Label | Description |
