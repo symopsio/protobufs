@@ -6,17 +6,23 @@ Refer to the [API Docs](docs/index.md) for more details.
 
 ## Example Integration
 
-You can build an integration with Sym using these types by starting with the [serverless-sym-typescript-template](https://github.com/symopsio/serverless-sym-typescript-template).
+[Generate a project](https://github.com/symopsio/serverless-sym-typescript-template/generate) from our starter template to integrate Sym Access workflows into your systems.
 
 ## Generated Libraries
 
 ### Typescript
 
-`import { sym } from @symops/types`
+TypeScript implementations are generated with [protobufjs](https://github.com/protobufjs/protobuf.js).
+
+`import { sym } from "@symops/types"`
 
 ### Go
 
+Golang implementations are generated with [protoc](https://developers.google.com/protocol-buffers/docs/reference/go-generated).
+
+`import "github.com/symopsio/types/go/enums"`
 `import "github.com/symopsio/types/go/messages"`
+`import "github.com/symopsio/types/go/models"`
 
 ## Packages
 
