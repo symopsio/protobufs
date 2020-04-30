@@ -20,9 +20,11 @@ TypeScript implementations are generated with [protobufjs](https://github.com/pr
 
 Golang implementations are generated with [protoc](https://developers.google.com/protocol-buffers/docs/reference/go-generated).
 
-`import "github.com/symopsio/types/go/enums"`
-`import "github.com/symopsio/types/go/messages"`
-`import "github.com/symopsio/types/go/models"`
+```
+import "github.com/symopsio/types/go/enums"
+import "github.com/symopsio/types/go/messages"
+import "github.com/symopsio/types/go/models"
+```
 
 ## Packages
 
