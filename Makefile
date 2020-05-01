@@ -1,20 +1,13 @@
-PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
+all: protoc js docs
 
-GO_OUT_DIR="./go"
-TS_OUT_DIR="./js"
-
-all: js go docs
-
-go:
-	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
-		--go_opt=module=github.com/symopsio/types/go \
-		src/sym/enums/*.proto
-	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
-		--go_opt=module=github.com/symopsio/types/go \
-		src/sym/models/*.proto
-	protoc --proto_path=src --go_out=${GO_OUT_DIR} \
-		--go_opt=module=github.com/symopsio/types/go \
-		src/sym/messages/*.proto
+protoc:
+	for pkg in enums models messages; do \
+		protoc --proto_path=src \
+			--go_out=./go \
+			--python_out=./py \
+			--go_opt=module=github.com/symopsio/types/go \
+			src/sym/$$pkg/*.proto; \
+	done
 
 docs:
 	protoc --proto_path=src --doc_out=./docs \
@@ -23,10 +16,17 @@ docs:
 		src/sym/models/*.proto \
 		src/sym/messages/*.proto
 
-
 js:
 	pbjs -t static-module -w commonjs -o js/index.js \
 		src/**/*.proto
 	pbts -o js/index.d.ts js/index.js
 
-.PHONY: go js docs
+pydistclean:
+	rm -rf py/build/*
+	rm -rf py/dist/*
+
+pydist: pydistclean
+	cd py && python3 setup.py sdist bdist_wheel
+	cd py && python3 -m twine upload dist/*
+
+.PHONY: protoc docs js pydist
