@@ -18,28 +18,28 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='sym.messages',
   syntax='proto3',
   serialized_options=b'Z%github.com/symopsio/types/go/messages',
-  serialized_pb=b'\n\x1bsym/messages/response.proto\x12\x0csym.messages\"/\n\x12\x45scalationResponse\x12\n\n\x02ok\x18\x01 \x01(\x08\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"/\n\x12\x45xpirationResponse\x12\n\n\x02ok\x18\x01 \x01(\x08\x12\r\n\x05\x65rror\x18\x02 \x01(\tB\'Z%github.com/symopsio/types/go/messagesb\x06proto3'
+  serialized_pb=b'\n\x1bsym/messages/response.proto\x12\x0csym.messages\"-\n\x10\x41pprovalResponse\x12\n\n\x02ok\x18\x01 \x01(\x08\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"/\n\x12\x45xpirationResponse\x12\n\n\x02ok\x18\x01 \x01(\x08\x12\r\n\x05\x65rror\x18\x02 \x01(\tB\'Z%github.com/symopsio/types/go/messagesb\x06proto3'
 )
 
 
 
 
-_ESCALATIONRESPONSE = _descriptor.Descriptor(
-  name='EscalationResponse',
-  full_name='sym.messages.EscalationResponse',
+_APPROVALRESPONSE = _descriptor.Descriptor(
+  name='ApprovalResponse',
+  full_name='sym.messages.ApprovalResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ok', full_name='sym.messages.EscalationResponse.ok', index=0,
+      name='ok', full_name='sym.messages.ApprovalResponse.ok', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='error', full_name='sym.messages.EscalationResponse.error', index=1,
+      name='error', full_name='sym.messages.ApprovalResponse.error', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -58,7 +58,7 @@ _ESCALATIONRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=45,
-  serialized_end=92,
+  serialized_end=90,
 )
 
 
@@ -95,20 +95,20 @@ _EXPIRATIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=94,
-  serialized_end=141,
+  serialized_start=92,
+  serialized_end=139,
 )
 
-DESCRIPTOR.message_types_by_name['EscalationResponse'] = _ESCALATIONRESPONSE
+DESCRIPTOR.message_types_by_name['ApprovalResponse'] = _APPROVALRESPONSE
 DESCRIPTOR.message_types_by_name['ExpirationResponse'] = _EXPIRATIONRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-EscalationResponse = _reflection.GeneratedProtocolMessageType('EscalationResponse', (_message.Message,), {
-  'DESCRIPTOR' : _ESCALATIONRESPONSE,
+ApprovalResponse = _reflection.GeneratedProtocolMessageType('ApprovalResponse', (_message.Message,), {
+  'DESCRIPTOR' : _APPROVALRESPONSE,
   '__module__' : 'sym.messages.response_pb2'
-  # @@protoc_insertion_point(class_scope:sym.messages.EscalationResponse)
+  # @@protoc_insertion_point(class_scope:sym.messages.ApprovalResponse)
   })
-_sym_db.RegisterMessage(EscalationResponse)
+_sym_db.RegisterMessage(ApprovalResponse)
 
 ExpirationResponse = _reflection.GeneratedProtocolMessageType('ExpirationResponse', (_message.Message,), {
   'DESCRIPTOR' : _EXPIRATIONRESPONSE,

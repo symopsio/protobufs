@@ -717,97 +717,97 @@ export namespace sym {
             }
         }
 
-        /** Properties of an EscalationResponse. */
-        interface IEscalationResponse {
+        /** Properties of an ApprovalResponse. */
+        interface IApprovalResponse {
 
-            /** EscalationResponse ok */
+            /** ApprovalResponse ok */
             ok?: (boolean|null);
 
-            /** EscalationResponse error */
+            /** ApprovalResponse error */
             error?: (string|null);
         }
 
-        /** Represents an EscalationResponse. */
-        class EscalationResponse implements IEscalationResponse {
+        /** Represents an ApprovalResponse. */
+        class ApprovalResponse implements IApprovalResponse {
 
             /**
-             * Constructs a new EscalationResponse.
+             * Constructs a new ApprovalResponse.
              * @param [properties] Properties to set
              */
-            constructor(properties?: sym.messages.IEscalationResponse);
+            constructor(properties?: sym.messages.IApprovalResponse);
 
-            /** EscalationResponse ok. */
+            /** ApprovalResponse ok. */
             public ok: boolean;
 
-            /** EscalationResponse error. */
+            /** ApprovalResponse error. */
             public error: string;
 
             /**
-             * Creates a new EscalationResponse instance using the specified properties.
+             * Creates a new ApprovalResponse instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns EscalationResponse instance
+             * @returns ApprovalResponse instance
              */
-            public static create(properties?: sym.messages.IEscalationResponse): sym.messages.EscalationResponse;
+            public static create(properties?: sym.messages.IApprovalResponse): sym.messages.ApprovalResponse;
 
             /**
-             * Encodes the specified EscalationResponse message. Does not implicitly {@link sym.messages.EscalationResponse.verify|verify} messages.
-             * @param message EscalationResponse message or plain object to encode
+             * Encodes the specified ApprovalResponse message. Does not implicitly {@link sym.messages.ApprovalResponse.verify|verify} messages.
+             * @param message ApprovalResponse message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: sym.messages.IEscalationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: sym.messages.IApprovalResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified EscalationResponse message, length delimited. Does not implicitly {@link sym.messages.EscalationResponse.verify|verify} messages.
-             * @param message EscalationResponse message or plain object to encode
+             * Encodes the specified ApprovalResponse message, length delimited. Does not implicitly {@link sym.messages.ApprovalResponse.verify|verify} messages.
+             * @param message ApprovalResponse message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: sym.messages.IEscalationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: sym.messages.IApprovalResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an EscalationResponse message from the specified reader or buffer.
+             * Decodes an ApprovalResponse message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns EscalationResponse
+             * @returns ApprovalResponse
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.EscalationResponse;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.ApprovalResponse;
 
             /**
-             * Decodes an EscalationResponse message from the specified reader or buffer, length delimited.
+             * Decodes an ApprovalResponse message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns EscalationResponse
+             * @returns ApprovalResponse
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.EscalationResponse;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.ApprovalResponse;
 
             /**
-             * Verifies an EscalationResponse message.
+             * Verifies an ApprovalResponse message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates an EscalationResponse message from a plain object. Also converts values to their respective internal types.
+             * Creates an ApprovalResponse message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns EscalationResponse
+             * @returns ApprovalResponse
              */
-            public static fromObject(object: { [k: string]: any }): sym.messages.EscalationResponse;
+            public static fromObject(object: { [k: string]: any }): sym.messages.ApprovalResponse;
 
             /**
-             * Creates a plain object from an EscalationResponse message. Also converts values to other types if specified.
-             * @param message EscalationResponse
+             * Creates a plain object from an ApprovalResponse message. Also converts values to other types if specified.
+             * @param message ApprovalResponse
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: sym.messages.EscalationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: sym.messages.ApprovalResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this EscalationResponse to JSON.
+             * Converts this ApprovalResponse to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

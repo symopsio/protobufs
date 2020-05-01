@@ -33,7 +33,7 @@
     - [Request.Target](#sym.messages.Request.Target)
   
 - [sym/messages/response.proto](#sym/messages/response.proto)
-    - [EscalationResponse](#sym.messages.EscalationResponse)
+    - [ApprovalResponse](#sym.messages.ApprovalResponse)
     - [ExpirationResponse](#sym.messages.ExpirationResponse)
   
 - [Scalar Value Types](#scalar-value-types)
@@ -329,7 +329,7 @@ Request represents some user request for access
 | ----- | ---- | ----- | ----------- |
 | id | [sym.models.UUID](#sym.models.UUID) |  |  |
 | schema | [sym.models.Schema](#sym.models.Schema) |  |  |
-| target | [Request.Target](#sym.messages.Request.Target) |  | The expirng user and resource |
+| target | [Request.Target](#sym.messages.Request.Target) |  | The target user and resource |
 | meta | [Request.Meta](#sym.messages.Request.Meta) |  | Metadata about the request |
 
 
@@ -384,10 +384,10 @@ Target combines the requesting user and resource
 
 
 
-<a name="sym.messages.EscalationResponse"></a>
+<a name="sym.messages.ApprovalResponse"></a>
 
-### EscalationResponse
-EscalationResponse gets sent back upon successful escalations
+### ApprovalResponse
+ApprovalResponse gets sent back upon successful approvals
 
 
 | Field | Type | Label | Description |
@@ -403,7 +403,7 @@ EscalationResponse gets sent back upon successful escalations
 <a name="sym.messages.ExpirationResponse"></a>
 
 ### ExpirationResponse
-ExpirationResponse gets sent back upon successful escalations
+ExpirationResponse gets sent back upon successful expirations
 
 
 | Field | Type | Label | Description |

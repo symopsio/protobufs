@@ -21,6 +21,6 @@ message Request {
   }
   sym.models.UUID id = 1;
   sym.models.Schema schema = 2;
-  Target target = 3; // The expirng user and resource
+  Target target = 3; // The target user and resource
   Meta meta = 4; // Metadata about the request
 }

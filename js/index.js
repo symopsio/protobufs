@@ -1673,25 +1673,25 @@ $root.sym = (function() {
             return Request;
         })();
 
-        messages.EscalationResponse = (function() {
+        messages.ApprovalResponse = (function() {
 
             /**
-             * Properties of an EscalationResponse.
+             * Properties of an ApprovalResponse.
              * @memberof sym.messages
-             * @interface IEscalationResponse
-             * @property {boolean|null} [ok] EscalationResponse ok
-             * @property {string|null} [error] EscalationResponse error
+             * @interface IApprovalResponse
+             * @property {boolean|null} [ok] ApprovalResponse ok
+             * @property {string|null} [error] ApprovalResponse error
              */
 
             /**
-             * Constructs a new EscalationResponse.
+             * Constructs a new ApprovalResponse.
              * @memberof sym.messages
-             * @classdesc Represents an EscalationResponse.
-             * @implements IEscalationResponse
+             * @classdesc Represents an ApprovalResponse.
+             * @implements IApprovalResponse
              * @constructor
-             * @param {sym.messages.IEscalationResponse=} [properties] Properties to set
+             * @param {sym.messages.IApprovalResponse=} [properties] Properties to set
              */
-            function EscalationResponse(properties) {
+            function ApprovalResponse(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -1699,43 +1699,43 @@ $root.sym = (function() {
             }
 
             /**
-             * EscalationResponse ok.
+             * ApprovalResponse ok.
              * @member {boolean} ok
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @instance
              */
-            EscalationResponse.prototype.ok = false;
+            ApprovalResponse.prototype.ok = false;
 
             /**
-             * EscalationResponse error.
+             * ApprovalResponse error.
              * @member {string} error
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @instance
              */
-            EscalationResponse.prototype.error = "";
+            ApprovalResponse.prototype.error = "";
 
             /**
-             * Creates a new EscalationResponse instance using the specified properties.
+             * Creates a new ApprovalResponse instance using the specified properties.
              * @function create
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @static
-             * @param {sym.messages.IEscalationResponse=} [properties] Properties to set
-             * @returns {sym.messages.EscalationResponse} EscalationResponse instance
+             * @param {sym.messages.IApprovalResponse=} [properties] Properties to set
+             * @returns {sym.messages.ApprovalResponse} ApprovalResponse instance
              */
-            EscalationResponse.create = function create(properties) {
-                return new EscalationResponse(properties);
+            ApprovalResponse.create = function create(properties) {
+                return new ApprovalResponse(properties);
             };
 
             /**
-             * Encodes the specified EscalationResponse message. Does not implicitly {@link sym.messages.EscalationResponse.verify|verify} messages.
+             * Encodes the specified ApprovalResponse message. Does not implicitly {@link sym.messages.ApprovalResponse.verify|verify} messages.
              * @function encode
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @static
-             * @param {sym.messages.IEscalationResponse} message EscalationResponse message or plain object to encode
+             * @param {sym.messages.IApprovalResponse} message ApprovalResponse message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            EscalationResponse.encode = function encode(message, writer) {
+            ApprovalResponse.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message.ok != null && Object.hasOwnProperty.call(message, "ok"))
@@ -1746,33 +1746,33 @@ $root.sym = (function() {
             };
 
             /**
-             * Encodes the specified EscalationResponse message, length delimited. Does not implicitly {@link sym.messages.EscalationResponse.verify|verify} messages.
+             * Encodes the specified ApprovalResponse message, length delimited. Does not implicitly {@link sym.messages.ApprovalResponse.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @static
-             * @param {sym.messages.IEscalationResponse} message EscalationResponse message or plain object to encode
+             * @param {sym.messages.IApprovalResponse} message ApprovalResponse message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            EscalationResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            ApprovalResponse.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes an EscalationResponse message from the specified reader or buffer.
+             * Decodes an ApprovalResponse message from the specified reader or buffer.
              * @function decode
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {sym.messages.EscalationResponse} EscalationResponse
+             * @returns {sym.messages.ApprovalResponse} ApprovalResponse
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            EscalationResponse.decode = function decode(reader, length) {
+            ApprovalResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.EscalationResponse();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.ApprovalResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -1791,30 +1791,30 @@ $root.sym = (function() {
             };
 
             /**
-             * Decodes an EscalationResponse message from the specified reader or buffer, length delimited.
+             * Decodes an ApprovalResponse message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {sym.messages.EscalationResponse} EscalationResponse
+             * @returns {sym.messages.ApprovalResponse} ApprovalResponse
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            EscalationResponse.decodeDelimited = function decodeDelimited(reader) {
+            ApprovalResponse.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies an EscalationResponse message.
+             * Verifies an ApprovalResponse message.
              * @function verify
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            EscalationResponse.verify = function verify(message) {
+            ApprovalResponse.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message.ok != null && message.hasOwnProperty("ok"))
@@ -1827,17 +1827,17 @@ $root.sym = (function() {
             };
 
             /**
-             * Creates an EscalationResponse message from a plain object. Also converts values to their respective internal types.
+             * Creates an ApprovalResponse message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {sym.messages.EscalationResponse} EscalationResponse
+             * @returns {sym.messages.ApprovalResponse} ApprovalResponse
              */
-            EscalationResponse.fromObject = function fromObject(object) {
-                if (object instanceof $root.sym.messages.EscalationResponse)
+            ApprovalResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.sym.messages.ApprovalResponse)
                     return object;
-                var message = new $root.sym.messages.EscalationResponse();
+                var message = new $root.sym.messages.ApprovalResponse();
                 if (object.ok != null)
                     message.ok = Boolean(object.ok);
                 if (object.error != null)
@@ -1846,15 +1846,15 @@ $root.sym = (function() {
             };
 
             /**
-             * Creates a plain object from an EscalationResponse message. Also converts values to other types if specified.
+             * Creates a plain object from an ApprovalResponse message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @static
-             * @param {sym.messages.EscalationResponse} message EscalationResponse
+             * @param {sym.messages.ApprovalResponse} message ApprovalResponse
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            EscalationResponse.toObject = function toObject(message, options) {
+            ApprovalResponse.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -1870,17 +1870,17 @@ $root.sym = (function() {
             };
 
             /**
-             * Converts this EscalationResponse to JSON.
+             * Converts this ApprovalResponse to JSON.
              * @function toJSON
-             * @memberof sym.messages.EscalationResponse
+             * @memberof sym.messages.ApprovalResponse
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            EscalationResponse.prototype.toJSON = function toJSON() {
+            ApprovalResponse.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return EscalationResponse;
+            return ApprovalResponse;
         })();
 
         messages.ExpirationResponse = (function() {

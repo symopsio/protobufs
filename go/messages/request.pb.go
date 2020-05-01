@@ -34,7 +34,7 @@ type Request struct {
 
 	Id     *models.UUID    `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Schema *models.Schema  `protobuf:"bytes,2,opt,name=schema,proto3" json:"schema,omitempty"`
-	Target *Request_Target `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"` // The expirng user and resource
+	Target *Request_Target `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"` // The target user and resource
 	Meta   *Request_Meta   `protobuf:"bytes,4,opt,name=meta,proto3" json:"meta,omitempty"`     // Metadata about the request
 }
 

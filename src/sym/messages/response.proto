@@ -3,13 +3,13 @@ package sym.messages;
 
 option go_package = "github.com/symopsio/types/go/messages";
 
-/* EscalationResponse gets sent back upon successful escalations */
-message EscalationResponse {
+/* ApprovalResponse gets sent back upon successful approvals */
+message ApprovalResponse {
   bool ok = 1;
   string error = 2; // error message when not ok
 }
 
-/* ExpirationResponse gets sent back upon successful escalations */
+/* ExpirationResponse gets sent back upon successful expirations */
 message ExpirationResponse {
   bool ok = 1;
   string error = 2; // error message when not ok
