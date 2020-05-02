@@ -8,8 +8,10 @@ Refer to the [API Docs](docs/index.md) for more details.
 
 Generate a project from one of our starter templates to integrate Sym Access workflows into your systems.
 
-* Typescript: [serverless-sym-typescript-template](https://github.com/symopsio/serverless-sym-typescript-template/generate)
-* Python: [serverless-sym-python-template](https://github.com/symopsio/serverless-sym-python-template/generate)
+| Language | Template |
+| -------- | -------- |
+| Typescript | [serverless-sym-typescript-template](https://github.com/symopsio/serverless-sym-typescript-template/generate) |
+| Python | [serverless-sym-python-template](https://github.com/symopsio/serverless-sym-python-template/generate) |
 
 ## Generated Libraries
 
