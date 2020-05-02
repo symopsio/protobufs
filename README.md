@@ -6,7 +6,10 @@ Refer to the [API Docs](docs/index.md) for more details.
 
 ## Example Integration
 
-[Generate a project](https://github.com/symopsio/serverless-sym-typescript-template/generate) from our starter template to integrate Sym Access workflows into your systems.
+Generate a project from one of our starter templates to integrate Sym Access workflows into your systems.
+
+* Typescript: [serverless-sym-typescript-template](https://github.com/symopsio/serverless-sym-typescript-template/generate)
+* Python: [serverless-sym-python-template](https://github.com/symopsio/serverless-sym-python-template/generate)
 
 ## Generated Libraries
 
