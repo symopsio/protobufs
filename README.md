@@ -21,6 +21,16 @@ TypeScript implementations are generated with [protobufjs](https://github.com/pr
 
 `import { sym } from "@symops/types"`
 
+### Python
+
+Python implementations are generated with [protoc](https://developers.google.com/protocol-buffers/docs/reference/python-generated).
+
+```
+from sym.enums.service_pb2 import Service
+from sym.messages.approval_pb2 import Approval
+from sym.models.user_pb2 import User
+```
+
 ### Go
 
 Golang implementations are generated with [protoc](https://developers.google.com/protocol-buffers/docs/reference/go-generated).
