@@ -516,6 +516,315 @@ export namespace sym {
             }
         }
 
+        /** Properties of an Options. */
+        interface IOptions {
+
+            /** Options id */
+            id?: (sym.models.IUUID|null);
+
+            /** Options schema */
+            schema?: (sym.models.ISchema|null);
+
+            /** Options requester */
+            requester?: (sym.models.IUser|null);
+
+            /** Options filter */
+            filter?: (sym.messages.Options.IFilter|null);
+        }
+
+        /** Represents an Options. */
+        class Options implements IOptions {
+
+            /**
+             * Constructs a new Options.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: sym.messages.IOptions);
+
+            /** Options id. */
+            public id?: (sym.models.IUUID|null);
+
+            /** Options schema. */
+            public schema?: (sym.models.ISchema|null);
+
+            /** Options requester. */
+            public requester?: (sym.models.IUser|null);
+
+            /** Options filter. */
+            public filter?: (sym.messages.Options.IFilter|null);
+
+            /**
+             * Creates a new Options instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Options instance
+             */
+            public static create(properties?: sym.messages.IOptions): sym.messages.Options;
+
+            /**
+             * Encodes the specified Options message. Does not implicitly {@link sym.messages.Options.verify|verify} messages.
+             * @param message Options message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: sym.messages.IOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Options message, length delimited. Does not implicitly {@link sym.messages.Options.verify|verify} messages.
+             * @param message Options message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: sym.messages.IOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an Options message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Options
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Options;
+
+            /**
+             * Decodes an Options message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Options
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Options;
+
+            /**
+             * Verifies an Options message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an Options message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Options
+             */
+            public static fromObject(object: { [k: string]: any }): sym.messages.Options;
+
+            /**
+             * Creates a plain object from an Options message. Also converts values to other types if specified.
+             * @param message Options
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: sym.messages.Options, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Options to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        namespace Options {
+
+            /** Properties of a Filter. */
+            interface IFilter {
+
+                /** Filter service */
+                service?: (sym.enums.Service|null);
+
+                /** Filter pattern */
+                pattern?: (string|null);
+            }
+
+            /** Represents a Filter. */
+            class Filter implements IFilter {
+
+                /**
+                 * Constructs a new Filter.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: sym.messages.Options.IFilter);
+
+                /** Filter service. */
+                public service: sym.enums.Service;
+
+                /** Filter pattern. */
+                public pattern: string;
+
+                /**
+                 * Creates a new Filter instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns Filter instance
+                 */
+                public static create(properties?: sym.messages.Options.IFilter): sym.messages.Options.Filter;
+
+                /**
+                 * Encodes the specified Filter message. Does not implicitly {@link sym.messages.Options.Filter.verify|verify} messages.
+                 * @param message Filter message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: sym.messages.Options.IFilter, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified Filter message, length delimited. Does not implicitly {@link sym.messages.Options.Filter.verify|verify} messages.
+                 * @param message Filter message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: sym.messages.Options.IFilter, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a Filter message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns Filter
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Options.Filter;
+
+                /**
+                 * Decodes a Filter message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns Filter
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Options.Filter;
+
+                /**
+                 * Verifies a Filter message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a Filter message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns Filter
+                 */
+                public static fromObject(object: { [k: string]: any }): sym.messages.Options.Filter;
+
+                /**
+                 * Creates a plain object from a Filter message. Also converts values to other types if specified.
+                 * @param message Filter
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: sym.messages.Options.Filter, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this Filter to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+            }
+        }
+
+        /** Properties of an OptionsResponse. */
+        interface IOptionsResponse {
+
+            /** OptionsResponse ok */
+            ok?: (boolean|null);
+
+            /** OptionsResponse error */
+            error?: (string|null);
+
+            /** OptionsResponse options */
+            options?: (string[]|null);
+        }
+
+        /** Represents an OptionsResponse. */
+        class OptionsResponse implements IOptionsResponse {
+
+            /**
+             * Constructs a new OptionsResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: sym.messages.IOptionsResponse);
+
+            /** OptionsResponse ok. */
+            public ok: boolean;
+
+            /** OptionsResponse error. */
+            public error: string;
+
+            /** OptionsResponse options. */
+            public options: string[];
+
+            /**
+             * Creates a new OptionsResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns OptionsResponse instance
+             */
+            public static create(properties?: sym.messages.IOptionsResponse): sym.messages.OptionsResponse;
+
+            /**
+             * Encodes the specified OptionsResponse message. Does not implicitly {@link sym.messages.OptionsResponse.verify|verify} messages.
+             * @param message OptionsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: sym.messages.IOptionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified OptionsResponse message, length delimited. Does not implicitly {@link sym.messages.OptionsResponse.verify|verify} messages.
+             * @param message OptionsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: sym.messages.IOptionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an OptionsResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns OptionsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.OptionsResponse;
+
+            /**
+             * Decodes an OptionsResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns OptionsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.OptionsResponse;
+
+            /**
+             * Verifies an OptionsResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an OptionsResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns OptionsResponse
+             */
+            public static fromObject(object: { [k: string]: any }): sym.messages.OptionsResponse;
+
+            /**
+             * Creates a plain object from an OptionsResponse message. Also converts values to other types if specified.
+             * @param message OptionsResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: sym.messages.OptionsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this OptionsResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a Request. */
         interface IRequest {
 

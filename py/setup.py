@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sym-types",
-    version="1.2.0b1",
+    version="1.2.0b2",
     author="Sym Inc",
     author_email="info@symops.io",
     description="Generated protobufs for Sym types",

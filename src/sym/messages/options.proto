@@ -1,0 +1,29 @@
+syntax = "proto3";
+package sym.messages;
+
+option go_package = "github.com/symopsio/types/go/messages";
+
+import "sym/enums/service.proto";
+import "sym/models/schema.proto";
+import "sym/models/user.proto";
+import "sym/models/uuid.proto";
+
+/* Options messages represent a user asking for options with a given filter  */
+message Options {
+  /* Options filter */
+  message Filter {
+    sym.enums.Service service = 1; // The service this is a resource in
+    string pattern = 2; // Filter string for resources
+  }
+  sym.models.UUID id = 1;
+  sym.models.Schema schema = 2;
+  sym.models.User requester = 3;
+  Filter filter = 4;
+}
+
+/* OptionsResponse gets sent back by dispatch requests */
+message OptionsResponse {
+  bool ok = 1;
+  string error = 2; // error message when not ok
+  repeated string options = 3;
+}

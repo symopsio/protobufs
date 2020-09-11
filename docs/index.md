@@ -30,6 +30,11 @@
     - [Expiration](#sym.messages.Expiration)
     - [Expiration.Target](#sym.messages.Expiration.Target)
   
+- [sym/messages/options.proto](#sym/messages/options.proto)
+    - [Options](#sym.messages.Options)
+    - [Options.Filter](#sym.messages.Options.Filter)
+    - [OptionsResponse](#sym.messages.OptionsResponse)
+  
 - [sym/messages/request.proto](#sym/messages/request.proto)
     - [Request](#sym.messages.Request)
     - [Request.Meta](#sym.messages.Request.Meta)
@@ -333,6 +338,73 @@ Target combines the expiring user and resource
 | ----- | ---- | ----- | ----------- |
 | user | [sym.models.User](#sym.models.User) |  | user to remove access from |
 | resource | [sym.models.Resource](#sym.models.Resource) |  | resource to remove access to |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="sym/messages/options.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## sym/messages/options.proto
+
+
+
+<a name="sym.messages.Options"></a>
+
+### Options
+Options messages represent a user asking for options with a given filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [sym.models.UUID](#sym.models.UUID) |  |  |
+| schema | [sym.models.Schema](#sym.models.Schema) |  |  |
+| requester | [sym.models.User](#sym.models.User) |  |  |
+| filter | [Options.Filter](#sym.messages.Options.Filter) |  |  |
+
+
+
+
+
+
+<a name="sym.messages.Options.Filter"></a>
+
+### Options.Filter
+Options filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| service | [sym.enums.Service](#sym.enums.Service) |  | The service this is a resource in |
+| pattern | [string](#string) |  | Filter string for resources |
+
+
+
+
+
+
+<a name="sym.messages.OptionsResponse"></a>
+
+### OptionsResponse
+OptionsResponse gets sent back by dispatch requests
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ok | [bool](#bool) |  |  |
+| error | [string](#string) |  | error message when not ok |
+| options | [string](#string) | repeated |  |
 
 
 
