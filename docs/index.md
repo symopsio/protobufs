@@ -23,6 +23,9 @@
     - [Approval](#sym.messages.Approval)
     - [Approval.Meta](#sym.messages.Approval.Meta)
   
+- [sym/messages/dispatch.proto](#sym/messages/dispatch.proto)
+    - [Dispatch](#sym.messages.Dispatch)
+  
 - [sym/messages/expiration.proto](#sym/messages/expiration.proto)
     - [Expiration](#sym.messages.Expiration)
     - [Expiration.Target](#sym.messages.Expiration.Target)
@@ -34,6 +37,7 @@
   
 - [sym/messages/response.proto](#sym/messages/response.proto)
     - [ApprovalResponse](#sym.messages.ApprovalResponse)
+    - [DispatchResponse](#sym.messages.DispatchResponse)
     - [ExpirationResponse](#sym.messages.ExpirationResponse)
   
 - [Scalar Value Types](#scalar-value-types)
@@ -263,6 +267,38 @@ Metadata about an approval
 
 
 
+<a name="sym/messages/dispatch.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## sym/messages/dispatch.proto
+
+
+
+<a name="sym.messages.Dispatch"></a>
+
+### Dispatch
+Dispatch messages wrap another message type
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| action | [string](#string) |  |  |
+| message | [google.protobuf.Any](#google.protobuf.Any) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="sym/messages/expiration.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -388,6 +424,22 @@ Target combines the requesting user and resource
 
 ### ApprovalResponse
 ApprovalResponse gets sent back upon successful approvals
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ok | [bool](#bool) |  |  |
+| error | [string](#string) |  | error message when not ok |
+
+
+
+
+
+
+<a name="sym.messages.DispatchResponse"></a>
+
+### DispatchResponse
+DispatchResponse gets sent back by dispatch requests
 
 
 | Field | Type | Label | Description |

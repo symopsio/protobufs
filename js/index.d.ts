@@ -219,6 +219,102 @@ export namespace sym {
             }
         }
 
+        /** Properties of a Dispatch. */
+        interface IDispatch {
+
+            /** Dispatch action */
+            action?: (string|null);
+
+            /** Dispatch message */
+            message?: (google.protobuf.IAny|null);
+        }
+
+        /** Represents a Dispatch. */
+        class Dispatch implements IDispatch {
+
+            /**
+             * Constructs a new Dispatch.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: sym.messages.IDispatch);
+
+            /** Dispatch action. */
+            public action: string;
+
+            /** Dispatch message. */
+            public message?: (google.protobuf.IAny|null);
+
+            /**
+             * Creates a new Dispatch instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Dispatch instance
+             */
+            public static create(properties?: sym.messages.IDispatch): sym.messages.Dispatch;
+
+            /**
+             * Encodes the specified Dispatch message. Does not implicitly {@link sym.messages.Dispatch.verify|verify} messages.
+             * @param message Dispatch message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: sym.messages.IDispatch, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Dispatch message, length delimited. Does not implicitly {@link sym.messages.Dispatch.verify|verify} messages.
+             * @param message Dispatch message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: sym.messages.IDispatch, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Dispatch message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Dispatch
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Dispatch;
+
+            /**
+             * Decodes a Dispatch message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Dispatch
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Dispatch;
+
+            /**
+             * Verifies a Dispatch message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Dispatch message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Dispatch
+             */
+            public static fromObject(object: { [k: string]: any }): sym.messages.Dispatch;
+
+            /**
+             * Creates a plain object from a Dispatch message. Also converts values to other types if specified.
+             * @param message Dispatch
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: sym.messages.Dispatch, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Dispatch to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of an Expiration. */
         interface IExpiration {
 
@@ -908,6 +1004,102 @@ export namespace sym {
              */
             public toJSON(): { [k: string]: any };
         }
+
+        /** Properties of a DispatchResponse. */
+        interface IDispatchResponse {
+
+            /** DispatchResponse ok */
+            ok?: (boolean|null);
+
+            /** DispatchResponse error */
+            error?: (string|null);
+        }
+
+        /** Represents a DispatchResponse. */
+        class DispatchResponse implements IDispatchResponse {
+
+            /**
+             * Constructs a new DispatchResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: sym.messages.IDispatchResponse);
+
+            /** DispatchResponse ok. */
+            public ok: boolean;
+
+            /** DispatchResponse error. */
+            public error: string;
+
+            /**
+             * Creates a new DispatchResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DispatchResponse instance
+             */
+            public static create(properties?: sym.messages.IDispatchResponse): sym.messages.DispatchResponse;
+
+            /**
+             * Encodes the specified DispatchResponse message. Does not implicitly {@link sym.messages.DispatchResponse.verify|verify} messages.
+             * @param message DispatchResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: sym.messages.IDispatchResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DispatchResponse message, length delimited. Does not implicitly {@link sym.messages.DispatchResponse.verify|verify} messages.
+             * @param message DispatchResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: sym.messages.IDispatchResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DispatchResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DispatchResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.DispatchResponse;
+
+            /**
+             * Decodes a DispatchResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DispatchResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.DispatchResponse;
+
+            /**
+             * Verifies a DispatchResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DispatchResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DispatchResponse
+             */
+            public static fromObject(object: { [k: string]: any }): sym.messages.DispatchResponse;
+
+            /**
+             * Creates a plain object from a DispatchResponse message. Also converts values to other types if specified.
+             * @param message DispatchResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: sym.messages.DispatchResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DispatchResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
     }
 
     /** Namespace models. */
@@ -1385,6 +1577,110 @@ export namespace sym {
 
             /**
              * Converts this UUID to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+    }
+}
+
+/** Namespace google. */
+export namespace google {
+
+    /** Namespace protobuf. */
+    namespace protobuf {
+
+        /** Properties of an Any. */
+        interface IAny {
+
+            /** Any type_url */
+            type_url?: (string|null);
+
+            /** Any value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents an Any. */
+        class Any implements IAny {
+
+            /**
+             * Constructs a new Any.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: google.protobuf.IAny);
+
+            /** Any type_url. */
+            public type_url: string;
+
+            /** Any value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new Any instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Any instance
+             */
+            public static create(properties?: google.protobuf.IAny): google.protobuf.Any;
+
+            /**
+             * Encodes the specified Any message. Does not implicitly {@link google.protobuf.Any.verify|verify} messages.
+             * @param message Any message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: google.protobuf.IAny, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Any message, length delimited. Does not implicitly {@link google.protobuf.Any.verify|verify} messages.
+             * @param message Any message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: google.protobuf.IAny, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an Any message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Any
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.protobuf.Any;
+
+            /**
+             * Decodes an Any message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Any
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.protobuf.Any;
+
+            /**
+             * Verifies an Any message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an Any message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Any
+             */
+            public static fromObject(object: { [k: string]: any }): google.protobuf.Any;
+
+            /**
+             * Creates a plain object from an Any message. Also converts values to other types if specified.
+             * @param message Any
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: google.protobuf.Any, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Any to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
