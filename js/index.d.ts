@@ -225,8 +225,8 @@ export namespace sym {
             /** Dispatch action */
             action?: (string|null);
 
-            /** Dispatch message */
-            message?: (google.protobuf.IAny|null);
+            /** Dispatch payload */
+            payload?: (google.protobuf.IAny|null);
         }
 
         /** Represents a Dispatch. */
@@ -241,8 +241,8 @@ export namespace sym {
             /** Dispatch action. */
             public action: string;
 
-            /** Dispatch message. */
-            public message?: (google.protobuf.IAny|null);
+            /** Dispatch payload. */
+            public payload?: (google.protobuf.IAny|null);
 
             /**
              * Creates a new Dispatch instance using the specified properties.

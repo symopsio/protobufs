@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z%github.com/symopsio/types/go/messages',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1bsym/messages/dispatch.proto\x12\x0csym.messages\x1a\x19google/protobuf/any.proto\"A\n\x08\x44ispatch\x12\x0e\n\x06\x61\x63tion\x18\x01 \x01(\t\x12%\n\x07message\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyB\'Z%github.com/symopsio/types/go/messagesb\x06proto3'
+  serialized_pb=b'\n\x1bsym/messages/dispatch.proto\x12\x0csym.messages\x1a\x19google/protobuf/any.proto\"A\n\x08\x44ispatch\x12\x0e\n\x06\x61\x63tion\x18\x01 \x01(\t\x12%\n\x07payload\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyB\'Z%github.com/symopsio/types/go/messagesb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,])
 
@@ -43,7 +43,7 @@ _DISPATCH = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='message', full_name='sym.messages.Dispatch.message', index=1,
+      name='payload', full_name='sym.messages.Dispatch.payload', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -65,7 +65,7 @@ _DISPATCH = _descriptor.Descriptor(
   serialized_end=137,
 )
 
-_DISPATCH.fields_by_name['message'].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_DISPATCH.fields_by_name['payload'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 DESCRIPTOR.message_types_by_name['Dispatch'] = _DISPATCH
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

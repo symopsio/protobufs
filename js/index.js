@@ -532,7 +532,7 @@ $root.sym = (function() {
              * @memberof sym.messages
              * @interface IDispatch
              * @property {string|null} [action] Dispatch action
-             * @property {google.protobuf.IAny|null} [message] Dispatch message
+             * @property {google.protobuf.IAny|null} [payload] Dispatch payload
              */
 
             /**
@@ -559,12 +559,12 @@ $root.sym = (function() {
             Dispatch.prototype.action = "";
 
             /**
-             * Dispatch message.
-             * @member {google.protobuf.IAny|null|undefined} message
+             * Dispatch payload.
+             * @member {google.protobuf.IAny|null|undefined} payload
              * @memberof sym.messages.Dispatch
              * @instance
              */
-            Dispatch.prototype.message = null;
+            Dispatch.prototype.payload = null;
 
             /**
              * Creates a new Dispatch instance using the specified properties.
@@ -592,8 +592,8 @@ $root.sym = (function() {
                     writer = $Writer.create();
                 if (message.action != null && Object.hasOwnProperty.call(message, "action"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.action);
-                if (message.message != null && Object.hasOwnProperty.call(message, "message"))
-                    $root.google.protobuf.Any.encode(message.message, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.payload != null && Object.hasOwnProperty.call(message, "payload"))
+                    $root.google.protobuf.Any.encode(message.payload, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                 return writer;
             };
 
@@ -632,7 +632,7 @@ $root.sym = (function() {
                         message.action = reader.string();
                         break;
                     case 2:
-                        message.message = $root.google.protobuf.Any.decode(reader, reader.uint32());
+                        message.payload = $root.google.protobuf.Any.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -672,10 +672,10 @@ $root.sym = (function() {
                 if (message.action != null && message.hasOwnProperty("action"))
                     if (!$util.isString(message.action))
                         return "action: string expected";
-                if (message.message != null && message.hasOwnProperty("message")) {
-                    var error = $root.google.protobuf.Any.verify(message.message);
+                if (message.payload != null && message.hasOwnProperty("payload")) {
+                    var error = $root.google.protobuf.Any.verify(message.payload);
                     if (error)
-                        return "message." + error;
+                        return "payload." + error;
                 }
                 return null;
             };
@@ -694,10 +694,10 @@ $root.sym = (function() {
                 var message = new $root.sym.messages.Dispatch();
                 if (object.action != null)
                     message.action = String(object.action);
-                if (object.message != null) {
-                    if (typeof object.message !== "object")
-                        throw TypeError(".sym.messages.Dispatch.message: object expected");
-                    message.message = $root.google.protobuf.Any.fromObject(object.message);
+                if (object.payload != null) {
+                    if (typeof object.payload !== "object")
+                        throw TypeError(".sym.messages.Dispatch.payload: object expected");
+                    message.payload = $root.google.protobuf.Any.fromObject(object.payload);
                 }
                 return message;
             };
@@ -717,12 +717,12 @@ $root.sym = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.action = "";
-                    object.message = null;
+                    object.payload = null;
                 }
                 if (message.action != null && message.hasOwnProperty("action"))
                     object.action = message.action;
-                if (message.message != null && message.hasOwnProperty("message"))
-                    object.message = $root.google.protobuf.Any.toObject(message.message, options);
+                if (message.payload != null && message.hasOwnProperty("payload"))
+                    object.payload = $root.google.protobuf.Any.toObject(message.payload, options);
                 return object;
             };
 

@@ -288,7 +288,7 @@ Dispatch messages wrap another message type
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | action | [string](#string) |  |  |
-| message | [google.protobuf.Any](#google.protobuf.Any) |  |  |
+| payload | [google.protobuf.Any](#google.protobuf.Any) |  |  |
 
 
 
