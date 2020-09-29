@@ -23,9 +23,17 @@
     - [Approval](#sym.messages.Approval)
     - [Approval.Meta](#sym.messages.Approval.Meta)
   
+- [sym/messages/dispatch.proto](#sym/messages/dispatch.proto)
+    - [Dispatch](#sym.messages.Dispatch)
+  
 - [sym/messages/expiration.proto](#sym/messages/expiration.proto)
     - [Expiration](#sym.messages.Expiration)
     - [Expiration.Target](#sym.messages.Expiration.Target)
+  
+- [sym/messages/options.proto](#sym/messages/options.proto)
+    - [Options](#sym.messages.Options)
+    - [Options.Filter](#sym.messages.Options.Filter)
+    - [OptionsResponse](#sym.messages.OptionsResponse)
   
 - [sym/messages/request.proto](#sym/messages/request.proto)
     - [Request](#sym.messages.Request)
@@ -34,6 +42,7 @@
   
 - [sym/messages/response.proto](#sym/messages/response.proto)
     - [ApprovalResponse](#sym.messages.ApprovalResponse)
+    - [DispatchResponse](#sym.messages.DispatchResponse)
     - [ExpirationResponse](#sym.messages.ExpirationResponse)
   
 - [Scalar Value Types](#scalar-value-types)
@@ -263,6 +272,38 @@ Metadata about an approval
 
 
 
+<a name="sym/messages/dispatch.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## sym/messages/dispatch.proto
+
+
+
+<a name="sym.messages.Dispatch"></a>
+
+### Dispatch
+Dispatch messages wrap another message type
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| action | [string](#string) |  |  |
+| payload | [google.protobuf.Any](#google.protobuf.Any) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="sym/messages/expiration.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -297,6 +338,73 @@ Target combines the expiring user and resource
 | ----- | ---- | ----- | ----------- |
 | user | [sym.models.User](#sym.models.User) |  | user to remove access from |
 | resource | [sym.models.Resource](#sym.models.Resource) |  | resource to remove access to |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="sym/messages/options.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## sym/messages/options.proto
+
+
+
+<a name="sym.messages.Options"></a>
+
+### Options
+Options messages represent a user asking for options with a given filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [sym.models.UUID](#sym.models.UUID) |  |  |
+| schema | [sym.models.Schema](#sym.models.Schema) |  |  |
+| requester | [sym.models.User](#sym.models.User) |  |  |
+| filter | [Options.Filter](#sym.messages.Options.Filter) |  |  |
+
+
+
+
+
+
+<a name="sym.messages.Options.Filter"></a>
+
+### Options.Filter
+Options filter
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| service | [sym.enums.Service](#sym.enums.Service) |  | The service this is a resource in |
+| pattern | [string](#string) |  | Filter string for resources |
+
+
+
+
+
+
+<a name="sym.messages.OptionsResponse"></a>
+
+### OptionsResponse
+OptionsResponse gets sent back by dispatch requests
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ok | [bool](#bool) |  |  |
+| error | [string](#string) |  | error message when not ok |
+| options | [string](#string) | repeated |  |
 
 
 
@@ -388,6 +496,22 @@ Target combines the requesting user and resource
 
 ### ApprovalResponse
 ApprovalResponse gets sent back upon successful approvals
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ok | [bool](#bool) |  |  |
+| error | [string](#string) |  | error message when not ok |
+
+
+
+
+
+
+<a name="sym.messages.DispatchResponse"></a>
+
+### DispatchResponse
+DispatchResponse gets sent back by dispatch requests
 
 
 | Field | Type | Label | Description |
