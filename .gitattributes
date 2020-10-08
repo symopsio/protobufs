@@ -2,4 +2,5 @@ docs/* linguist-documentation
 docs/index.md linguist-generated
 py/* linguist-generated
 ruby/* linguist-generated
+js/* linguist-generated
 go/* linguist-generated

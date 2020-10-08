@@ -1,0 +1,19 @@
+syntax = "proto3";
+package sym.messages;
+
+option go_package = "github.com/symopsio/types/go/messages";
+
+import "sym/models/schema.proto";
+
+/* Authz messages test if a user is authorized for a role */
+message Authz {
+  sym.models.Schema schema = 1;
+  string user = 2;
+  string role = 3;
+}
+
+/* AuthzResponse gets sent back by authz requests */
+message AuthzResponse {
+  bool ok = 1;
+  string errorMessage = 2; // error message when not ok
+}

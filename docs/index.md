@@ -23,6 +23,10 @@
     - [Approval](#sym.messages.Approval)
     - [Approval.Meta](#sym.messages.Approval.Meta)
   
+- [sym/messages/authz.proto](#sym/messages/authz.proto)
+    - [Authz](#sym.messages.Authz)
+    - [AuthzResponse](#sym.messages.AuthzResponse)
+  
 - [sym/messages/dispatch.proto](#sym/messages/dispatch.proto)
     - [Dispatch](#sym.messages.Dispatch)
   
@@ -257,6 +261,55 @@ Metadata about an approval
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | approver | [sym.models.User](#sym.models.User) |  | The approving user |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="sym/messages/authz.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## sym/messages/authz.proto
+
+
+
+<a name="sym.messages.Authz"></a>
+
+### Authz
+Authz messages test if a user is authorized for a role
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| schema | [sym.models.Schema](#sym.models.Schema) |  |  |
+| user | [string](#string) |  |  |
+| role | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="sym.messages.AuthzResponse"></a>
+
+### AuthzResponse
+AuthzResponse gets sent back by authz requests
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ok | [bool](#bool) |  |  |
+| errorMessage | [string](#string) |  | error message when not ok |
 
 
 
