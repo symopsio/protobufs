@@ -219,6 +219,204 @@ export namespace sym {
             }
         }
 
+        /** Properties of an Authz. */
+        interface IAuthz {
+
+            /** Authz schema */
+            schema?: (sym.models.ISchema|null);
+
+            /** Authz user */
+            user?: (string|null);
+
+            /** Authz role */
+            role?: (string|null);
+        }
+
+        /** Represents an Authz. */
+        class Authz implements IAuthz {
+
+            /**
+             * Constructs a new Authz.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: sym.messages.IAuthz);
+
+            /** Authz schema. */
+            public schema?: (sym.models.ISchema|null);
+
+            /** Authz user. */
+            public user: string;
+
+            /** Authz role. */
+            public role: string;
+
+            /**
+             * Creates a new Authz instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Authz instance
+             */
+            public static create(properties?: sym.messages.IAuthz): sym.messages.Authz;
+
+            /**
+             * Encodes the specified Authz message. Does not implicitly {@link sym.messages.Authz.verify|verify} messages.
+             * @param message Authz message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: sym.messages.IAuthz, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Authz message, length delimited. Does not implicitly {@link sym.messages.Authz.verify|verify} messages.
+             * @param message Authz message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: sym.messages.IAuthz, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an Authz message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Authz
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.Authz;
+
+            /**
+             * Decodes an Authz message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Authz
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.Authz;
+
+            /**
+             * Verifies an Authz message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an Authz message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Authz
+             */
+            public static fromObject(object: { [k: string]: any }): sym.messages.Authz;
+
+            /**
+             * Creates a plain object from an Authz message. Also converts values to other types if specified.
+             * @param message Authz
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: sym.messages.Authz, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Authz to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an AuthzResponse. */
+        interface IAuthzResponse {
+
+            /** AuthzResponse ok */
+            ok?: (boolean|null);
+
+            /** AuthzResponse errorMessage */
+            errorMessage?: (string|null);
+        }
+
+        /** Represents an AuthzResponse. */
+        class AuthzResponse implements IAuthzResponse {
+
+            /**
+             * Constructs a new AuthzResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: sym.messages.IAuthzResponse);
+
+            /** AuthzResponse ok. */
+            public ok: boolean;
+
+            /** AuthzResponse errorMessage. */
+            public errorMessage: string;
+
+            /**
+             * Creates a new AuthzResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AuthzResponse instance
+             */
+            public static create(properties?: sym.messages.IAuthzResponse): sym.messages.AuthzResponse;
+
+            /**
+             * Encodes the specified AuthzResponse message. Does not implicitly {@link sym.messages.AuthzResponse.verify|verify} messages.
+             * @param message AuthzResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: sym.messages.IAuthzResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AuthzResponse message, length delimited. Does not implicitly {@link sym.messages.AuthzResponse.verify|verify} messages.
+             * @param message AuthzResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: sym.messages.IAuthzResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an AuthzResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AuthzResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): sym.messages.AuthzResponse;
+
+            /**
+             * Decodes an AuthzResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AuthzResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): sym.messages.AuthzResponse;
+
+            /**
+             * Verifies an AuthzResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an AuthzResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AuthzResponse
+             */
+            public static fromObject(object: { [k: string]: any }): sym.messages.AuthzResponse;
+
+            /**
+             * Creates a plain object from an AuthzResponse message. Also converts values to other types if specified.
+             * @param message AuthzResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: sym.messages.AuthzResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AuthzResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a Dispatch. */
         interface IDispatch {
 

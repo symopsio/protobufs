@@ -525,6 +525,453 @@ $root.sym = (function() {
             return Approval;
         })();
 
+        messages.Authz = (function() {
+
+            /**
+             * Properties of an Authz.
+             * @memberof sym.messages
+             * @interface IAuthz
+             * @property {sym.models.ISchema|null} [schema] Authz schema
+             * @property {string|null} [user] Authz user
+             * @property {string|null} [role] Authz role
+             */
+
+            /**
+             * Constructs a new Authz.
+             * @memberof sym.messages
+             * @classdesc Represents an Authz.
+             * @implements IAuthz
+             * @constructor
+             * @param {sym.messages.IAuthz=} [properties] Properties to set
+             */
+            function Authz(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Authz schema.
+             * @member {sym.models.ISchema|null|undefined} schema
+             * @memberof sym.messages.Authz
+             * @instance
+             */
+            Authz.prototype.schema = null;
+
+            /**
+             * Authz user.
+             * @member {string} user
+             * @memberof sym.messages.Authz
+             * @instance
+             */
+            Authz.prototype.user = "";
+
+            /**
+             * Authz role.
+             * @member {string} role
+             * @memberof sym.messages.Authz
+             * @instance
+             */
+            Authz.prototype.role = "";
+
+            /**
+             * Creates a new Authz instance using the specified properties.
+             * @function create
+             * @memberof sym.messages.Authz
+             * @static
+             * @param {sym.messages.IAuthz=} [properties] Properties to set
+             * @returns {sym.messages.Authz} Authz instance
+             */
+            Authz.create = function create(properties) {
+                return new Authz(properties);
+            };
+
+            /**
+             * Encodes the specified Authz message. Does not implicitly {@link sym.messages.Authz.verify|verify} messages.
+             * @function encode
+             * @memberof sym.messages.Authz
+             * @static
+             * @param {sym.messages.IAuthz} message Authz message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Authz.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
+                    $root.sym.models.Schema.encode(message.schema, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.user != null && Object.hasOwnProperty.call(message, "user"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.user);
+                if (message.role != null && Object.hasOwnProperty.call(message, "role"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.role);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Authz message, length delimited. Does not implicitly {@link sym.messages.Authz.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof sym.messages.Authz
+             * @static
+             * @param {sym.messages.IAuthz} message Authz message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Authz.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an Authz message from the specified reader or buffer.
+             * @function decode
+             * @memberof sym.messages.Authz
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {sym.messages.Authz} Authz
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Authz.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.Authz();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.schema = $root.sym.models.Schema.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.user = reader.string();
+                        break;
+                    case 3:
+                        message.role = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an Authz message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof sym.messages.Authz
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {sym.messages.Authz} Authz
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Authz.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an Authz message.
+             * @function verify
+             * @memberof sym.messages.Authz
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Authz.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.schema != null && message.hasOwnProperty("schema")) {
+                    var error = $root.sym.models.Schema.verify(message.schema);
+                    if (error)
+                        return "schema." + error;
+                }
+                if (message.user != null && message.hasOwnProperty("user"))
+                    if (!$util.isString(message.user))
+                        return "user: string expected";
+                if (message.role != null && message.hasOwnProperty("role"))
+                    if (!$util.isString(message.role))
+                        return "role: string expected";
+                return null;
+            };
+
+            /**
+             * Creates an Authz message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof sym.messages.Authz
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {sym.messages.Authz} Authz
+             */
+            Authz.fromObject = function fromObject(object) {
+                if (object instanceof $root.sym.messages.Authz)
+                    return object;
+                var message = new $root.sym.messages.Authz();
+                if (object.schema != null) {
+                    if (typeof object.schema !== "object")
+                        throw TypeError(".sym.messages.Authz.schema: object expected");
+                    message.schema = $root.sym.models.Schema.fromObject(object.schema);
+                }
+                if (object.user != null)
+                    message.user = String(object.user);
+                if (object.role != null)
+                    message.role = String(object.role);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an Authz message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof sym.messages.Authz
+             * @static
+             * @param {sym.messages.Authz} message Authz
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Authz.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.schema = null;
+                    object.user = "";
+                    object.role = "";
+                }
+                if (message.schema != null && message.hasOwnProperty("schema"))
+                    object.schema = $root.sym.models.Schema.toObject(message.schema, options);
+                if (message.user != null && message.hasOwnProperty("user"))
+                    object.user = message.user;
+                if (message.role != null && message.hasOwnProperty("role"))
+                    object.role = message.role;
+                return object;
+            };
+
+            /**
+             * Converts this Authz to JSON.
+             * @function toJSON
+             * @memberof sym.messages.Authz
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Authz.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Authz;
+        })();
+
+        messages.AuthzResponse = (function() {
+
+            /**
+             * Properties of an AuthzResponse.
+             * @memberof sym.messages
+             * @interface IAuthzResponse
+             * @property {boolean|null} [ok] AuthzResponse ok
+             * @property {string|null} [errorMessage] AuthzResponse errorMessage
+             */
+
+            /**
+             * Constructs a new AuthzResponse.
+             * @memberof sym.messages
+             * @classdesc Represents an AuthzResponse.
+             * @implements IAuthzResponse
+             * @constructor
+             * @param {sym.messages.IAuthzResponse=} [properties] Properties to set
+             */
+            function AuthzResponse(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AuthzResponse ok.
+             * @member {boolean} ok
+             * @memberof sym.messages.AuthzResponse
+             * @instance
+             */
+            AuthzResponse.prototype.ok = false;
+
+            /**
+             * AuthzResponse errorMessage.
+             * @member {string} errorMessage
+             * @memberof sym.messages.AuthzResponse
+             * @instance
+             */
+            AuthzResponse.prototype.errorMessage = "";
+
+            /**
+             * Creates a new AuthzResponse instance using the specified properties.
+             * @function create
+             * @memberof sym.messages.AuthzResponse
+             * @static
+             * @param {sym.messages.IAuthzResponse=} [properties] Properties to set
+             * @returns {sym.messages.AuthzResponse} AuthzResponse instance
+             */
+            AuthzResponse.create = function create(properties) {
+                return new AuthzResponse(properties);
+            };
+
+            /**
+             * Encodes the specified AuthzResponse message. Does not implicitly {@link sym.messages.AuthzResponse.verify|verify} messages.
+             * @function encode
+             * @memberof sym.messages.AuthzResponse
+             * @static
+             * @param {sym.messages.IAuthzResponse} message AuthzResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AuthzResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.ok != null && Object.hasOwnProperty.call(message, "ok"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.ok);
+                if (message.errorMessage != null && Object.hasOwnProperty.call(message, "errorMessage"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.errorMessage);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AuthzResponse message, length delimited. Does not implicitly {@link sym.messages.AuthzResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof sym.messages.AuthzResponse
+             * @static
+             * @param {sym.messages.IAuthzResponse} message AuthzResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AuthzResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AuthzResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof sym.messages.AuthzResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {sym.messages.AuthzResponse} AuthzResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AuthzResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.sym.messages.AuthzResponse();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.ok = reader.bool();
+                        break;
+                    case 2:
+                        message.errorMessage = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AuthzResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof sym.messages.AuthzResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {sym.messages.AuthzResponse} AuthzResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AuthzResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AuthzResponse message.
+             * @function verify
+             * @memberof sym.messages.AuthzResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AuthzResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.ok != null && message.hasOwnProperty("ok"))
+                    if (typeof message.ok !== "boolean")
+                        return "ok: boolean expected";
+                if (message.errorMessage != null && message.hasOwnProperty("errorMessage"))
+                    if (!$util.isString(message.errorMessage))
+                        return "errorMessage: string expected";
+                return null;
+            };
+
+            /**
+             * Creates an AuthzResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof sym.messages.AuthzResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {sym.messages.AuthzResponse} AuthzResponse
+             */
+            AuthzResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.sym.messages.AuthzResponse)
+                    return object;
+                var message = new $root.sym.messages.AuthzResponse();
+                if (object.ok != null)
+                    message.ok = Boolean(object.ok);
+                if (object.errorMessage != null)
+                    message.errorMessage = String(object.errorMessage);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AuthzResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof sym.messages.AuthzResponse
+             * @static
+             * @param {sym.messages.AuthzResponse} message AuthzResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AuthzResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.ok = false;
+                    object.errorMessage = "";
+                }
+                if (message.ok != null && message.hasOwnProperty("ok"))
+                    object.ok = message.ok;
+                if (message.errorMessage != null && message.hasOwnProperty("errorMessage"))
+                    object.errorMessage = message.errorMessage;
+                return object;
+            };
+
+            /**
+             * Converts this AuthzResponse to JSON.
+             * @function toJSON
+             * @memberof sym.messages.AuthzResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AuthzResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AuthzResponse;
+        })();
+
         messages.Dispatch = (function() {
 
             /**
